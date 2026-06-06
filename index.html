@@ -58,7 +58,8 @@
         top: 15vh; right: 15vw;
     }
     .hero-content { position: relative; z-index: 1; }
-    main, nav { position: relative; z-index: 1; }
+    main, nav, footer { position: relative; z-index: 1; }
+    html, body { overflow-x: hidden; }
 </style>
 </head>
 <body class="selection:bg-[#ff8c00] selection:text-black">
@@ -335,16 +336,15 @@
             <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="contact.html">Contact</a>
         </div>
         <div class="flex flex-col gap-3">
-            <h6 class="font-bold text-[#d2ecff] text-sm">Connect</h6>
-            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#">Instagram</a>
-            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#">LinkedIn</a>
-            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#">Facebook</a>
+            <h6 class="font-bold text-[#d2ecff] text-sm">Contact</h6>
+            <a class="text-[#bfc8cf] hover:text-[#ff8c00] transition-colors text-sm" href="mailto:Twinmmediahouse@gmail.com">Twinmmediahouse@gmail.com</a>
+            <a class="text-[#bfc8cf] hover:text-[#ff8c00] transition-colors text-sm" href="https://wa.me/919625832921">+91 96258 32921</a>
         </div>
     </div>
 </footer>
 
 <!-- WhatsApp Float -->
-<a href="https://wa.me/1234567890" target="_blank" class="fixed bottom-8 right-8 z-50 group">
+<a href="https://wa.me/919625832921" target="_blank" class="fixed bottom-8 right-8 z-50 group">
     <div class="absolute inset-0 bg-[#ff8c00] blur-xl opacity-20 group-hover:opacity-40 transition-opacity rounded-full"></div>
     <div class="relative bg-[#ff8c00] text-black p-4 rounded-full shadow-2xl flex items-center gap-3 overflow-hidden transition-all duration-300 max-w-[58px] group-hover:max-w-[210px]">
         <span class="material-symbols-outlined shrink-0" style="font-variation-settings:'FILL' 1;">chat</span>
