@@ -3,54 +3,67 @@
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Contact | TWINM Media House</title>
+<title>Contact | TwinM Media House</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <style>
-    body { background-color: #101416; color: #e0e3e6; -webkit-font-smoothing: antialiased; font-family: 'Outfit', sans-serif; }
-    .glass { background: rgba(29,32,35,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(64,72,78,0.3); }
-    .material-symbols-outlined { font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
-    #mobile-menu { display: none; }
-    #mobile-menu.open { display: flex; }
-
-    /* Input focus label animation */
-    .form-group label { transition: letter-spacing 0.3s ease, color 0.3s ease; }
-    .form-group:focus-within label { letter-spacing: 0.2em; color: #ff8c00; }
-
-    /* Mouse glow */
-    body { background: radial-gradient(circle at 50% 50%, #141a1f 0%, #101416 60%); }
-
-    /* Success toast */
-    #toast { display: none; }
-    #toast.show { display: flex; }
+    body { background-color:#0a0c0e; color:#e0e3e6; -webkit-font-smoothing:antialiased; font-family:'Outfit',sans-serif; }
+    .glass { background:rgba(29,32,35,0.7); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(64,72,78,0.3); }
+    .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+    #mobile-menu { display:none; }
+    #mobile-menu.open { display:flex; }
+    .form-group label { transition:letter-spacing 0.3s ease, color 0.3s ease; }
+    .form-group:focus-within label { letter-spacing:0.2em; color:#ff8c00; }
+    #toast { display:none; }
+    #toast.show { display:flex; }
     @keyframes slideUp { from { transform:translateY(20px); opacity:0; } to { transform:translateY(0); opacity:1; } }
-    #toast.show { animation: slideUp 0.4s ease; }
+    #toast.show { animation:slideUp 0.4s ease; }
+
+    /* Aurora */
+    #aurora-wrap { position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; z-index:0; overflow:hidden; background:#0a0c0e; }
+    .aurora-blob { position:absolute; border-radius:50%; will-change:transform; }
+    .a1 { width:700px; height:600px; background:radial-gradient(ellipse, rgba(255,100,0,0.6), transparent 70%); filter:blur(100px); top:-10vh; left:-5vw; }
+    .a2 { width:600px; height:600px; background:radial-gradient(ellipse, rgba(160,0,255,0.45), transparent 70%); filter:blur(110px); top:-5vh; right:-5vw; }
+    .a3 { width:550px; height:500px; background:radial-gradient(ellipse, rgba(0,100,255,0.35), transparent 70%); filter:blur(100px); top:30vh; left:25vw; }
+    .a4 { width:450px; height:450px; background:radial-gradient(ellipse, rgba(255,160,0,0.4), transparent 70%); filter:blur(90px); top:15vh; right:15vw; }
+    main, nav, footer { position:relative; z-index:1; }
 </style>
 </head>
 <body class="min-h-screen">
 
+<!-- Aurora -->
+<div id="aurora-wrap">
+    <div class="aurora-blob a1" id="a1"></div>
+    <div class="aurora-blob a2" id="a2"></div>
+    <div class="aurora-blob a3" id="a3"></div>
+    <div class="aurora-blob a4" id="a4"></div>
+</div>
+
 <!-- Navigation -->
 <nav class="fixed top-0 w-full z-50 bg-[#1d2023]/80 backdrop-blur-xl border-b border-[#40484e]/30 shadow-sm">
     <div class="max-w-[1200px] mx-auto flex justify-between items-center px-10 py-4">
-        <a href="index.html" class="text-[28px] font-bold tracking-tight text-[#d2ecff]">Twinm Media House</a>
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="logo.png" alt="TwinM Media House" class="h-10 w-10 rounded-full object-cover">
+            <span class="text-[22px] font-bold tracking-tight text-[#d2ecff]">TwinM Media House</span>
+        </a>
         <div class="hidden md:flex items-center gap-8">
             <a href="index.html" class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm">Home</a>
             <a href="about.html" class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm">About</a>
             <a href="services.html" class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm">Services</a>
-            <a href="portfolio.html" class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm">Portfolio</a>
+            <a href="portfolio.html" class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm">Results</a>
             <a href="contact.html" class="text-[#d2ecff] font-bold border-b-2 border-[#d2ecff] pb-1 text-sm">Contact</a>
         </div>
-        <a href="contact.html" class="hidden md:block bg-[#ff8c00] text-black px-6 py-2 rounded-full font-bold hover:scale-95 transition-transform text-sm" style="box-shadow:0 0 15px rgba(255,140,0,0.2)">Book a Call</a>
+        <a href="contact.html" class="hidden md:block bg-[#ff8c00] text-black px-6 py-2 rounded-full font-bold hover:scale-95 transition-transform text-sm" style="box-shadow:0 0 15px rgba(255,140,0,0.2)">Get Free Audit</a>
         <button id="menu-toggle" class="md:hidden text-[#d2ecff]"><span class="material-symbols-outlined">menu</span></button>
     </div>
     <div id="mobile-menu" class="md:hidden flex-col bg-[#1d2023] border-t border-[#40484e]/30 px-10 py-6 gap-4">
         <a href="index.html" class="text-[#bfc8cf] text-sm">Home</a>
         <a href="about.html" class="text-[#bfc8cf] text-sm">About</a>
         <a href="services.html" class="text-[#bfc8cf] text-sm">Services</a>
-        <a href="portfolio.html" class="text-[#bfc8cf] text-sm">Portfolio</a>
+        <a href="portfolio.html" class="text-[#bfc8cf] text-sm">Results</a>
         <a href="contact.html" class="text-[#d2ecff] font-bold text-sm">Contact</a>
-        <a href="contact.html" class="bg-[#ff8c00] text-black px-6 py-2 rounded-full font-bold text-sm text-center">Book a Call</a>
+        <a href="contact.html" class="bg-[#ff8c00] text-black px-6 py-2 rounded-full font-bold text-sm text-center">Get Free Audit</a>
     </div>
 </nav>
 
@@ -58,14 +71,13 @@
     <div class="max-w-[1200px] mx-auto">
 
         <!-- Hero -->
-        <header class="mb-20 relative">
-            <div class="absolute top-0 left-0 w-[500px] h-[300px] bg-[#ff8c00]/6 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
+        <header class="mb-20">
             <span class="text-xs font-light tracking-[0.55em] text-[#ff8c00] uppercase mb-4 block">GET IN TOUCH</span>
-            <h1 class="font-bold mb-6 leading-tight" style="font-size: clamp(36px, 5vw, 72px);">
-                Connect with the <span class="text-[#d2ecff]">Future.</span>
+            <h1 class="font-bold mb-6 leading-tight" style="font-size:clamp(36px,5vw,72px);">
+                Let's Grow Your <span class="text-[#ff8c00]">Business.</span>
             </h1>
             <p class="max-w-2xl text-[#bfc8cf] text-sm leading-relaxed">
-                Ready to elevate your brand through strategic PR and media? Reach out to our team for tailored solutions and a free strategy consultation.
+                Ready to stop spending on marketing and start growing revenue? Reach out — we'll get back within 2 hours.
             </p>
         </header>
 
@@ -73,9 +85,11 @@
 
             <!-- Contact Form -->
             <section class="lg:col-span-7 glass p-8 md:p-12 rounded-2xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-40 h-40 bg-[#ff8c00]/15 blur-3xl rounded-full pointer-events-none"></div>
-                <h2 class="text-[28px] font-bold mb-8 relative z-10">Send a Transmission</h2>
-                <form class="space-y-6 relative z-10" id="contactForm" onsubmit="handleSubmit(event)">
+                <div class="absolute top-0 right-0 w-40 h-40 bg-[#ff8c00]/10 blur-3xl rounded-full pointer-events-none"></div>
+                <h2 class="text-[28px] font-bold mb-8 relative z-10">Send Us a Message</h2>
+
+                <!-- Formspree form — action will be added by user -->
+                <form class="space-y-6 relative z-10" id="contactForm" method="POST">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="form-group">
                             <label class="block text-xs font-semibold text-[#8a9298] uppercase mb-2 tracking-widest">Full Name *</label>
@@ -93,15 +107,12 @@
                     <div class="form-group">
                         <label class="block text-xs font-semibold text-[#8a9298] uppercase mb-2 tracking-widest">Service Interested In</label>
                         <select class="w-full bg-[#191c1f] border border-[#40484e] rounded-lg px-4 py-3 text-sm text-[#e0e3e6] focus:border-[#ff8c00] focus:ring-1 focus:ring-[#ff8c00] outline-none transition-all" name="service">
-                            <option value="" class="text-[#8a9298]">Select a service...</option>
-                            <option value="pr">PR Strategy & Management</option>
-                            <option value="crisis">Crisis Communications</option>
-                            <option value="social">Social Media Management</option>
-                            <option value="content">Content Production</option>
-                            <option value="podcast">Podcast Production</option>
-                            <option value="training">Executive Media Training</option>
-                            <option value="influencer">Influencer Relations</option>
-                            <option value="event">Event PR & Launch</option>
+                            <option value="">Select a service...</option>
+                            <option value="content">Content & Social Media</option>
+                            <option value="ads">Performance Marketing (Meta/Google Ads)</option>
+                            <option value="landing">Landing Pages & Funnels</option>
+                            <option value="seo">SEO & Organic Growth</option>
+                            <option value="conversion">Conversion & Sales Support</option>
                             <option value="other">Other / Custom</option>
                         </select>
                     </div>
@@ -110,19 +121,19 @@
                         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
                             <label class="budget-option cursor-pointer">
                                 <input type="radio" name="budget" value="starter" class="sr-only">
-                                <div class="budget-btn text-center border border-[#40484e] rounded-lg px-3 py-2 text-xs text-[#bfc8cf] hover:border-[#ff8c00] transition-all">Under $2.5k</div>
+                                <div class="budget-btn text-center border border-[#40484e] rounded-lg px-3 py-2 text-xs text-[#bfc8cf] hover:border-[#ff8c00] transition-all">Under ₹15k</div>
                             </label>
                             <label class="budget-option cursor-pointer">
                                 <input type="radio" name="budget" value="growth" class="sr-only">
-                                <div class="budget-btn text-center border border-[#40484e] rounded-lg px-3 py-2 text-xs text-[#bfc8cf] hover:border-[#ff8c00] transition-all">$2.5k–$5k</div>
+                                <div class="budget-btn text-center border border-[#40484e] rounded-lg px-3 py-2 text-xs text-[#bfc8cf] hover:border-[#ff8c00] transition-all">₹15k–₹30k</div>
                             </label>
                             <label class="budget-option cursor-pointer">
                                 <input type="radio" name="budget" value="agency" class="sr-only">
-                                <div class="budget-btn text-center border border-[#40484e] rounded-lg px-3 py-2 text-xs text-[#bfc8cf] hover:border-[#ff8c00] transition-all">$5k–$10k</div>
+                                <div class="budget-btn text-center border border-[#40484e] rounded-lg px-3 py-2 text-xs text-[#bfc8cf] hover:border-[#ff8c00] transition-all">₹30k–₹60k</div>
                             </label>
                             <label class="budget-option cursor-pointer">
                                 <input type="radio" name="budget" value="enterprise" class="sr-only">
-                                <div class="budget-btn text-center border border-[#40484e] rounded-lg px-3 py-2 text-xs text-[#bfc8cf] hover:border-[#ff8c00] transition-all">$10k+</div>
+                                <div class="budget-btn text-center border border-[#40484e] rounded-lg px-3 py-2 text-xs text-[#bfc8cf] hover:border-[#ff8c00] transition-all">₹60k+</div>
                             </label>
                         </div>
                     </div>
@@ -130,47 +141,37 @@
                         <label class="block text-xs font-semibold text-[#8a9298] uppercase mb-2 tracking-widest">Message *</label>
                         <textarea required class="w-full bg-[#191c1f] border border-[#40484e] rounded-lg px-4 py-3 text-sm text-[#e0e3e6] placeholder:text-[#8a9298]/50 focus:border-[#ff8c00] focus:ring-1 focus:ring-[#ff8c00] outline-none transition-all resize-none" placeholder="Tell us about your brand, goals, and how we can help..." rows="5" name="message"></textarea>
                     </div>
-                    <button type="submit" id="submitBtn" class="w-full md:w-auto bg-[#ff8c00] text-black px-12 py-4 rounded-lg font-bold uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all text-xs" style="box-shadow:0 0 20px rgba(255,140,0,0.25)">
-                        Send Transmission
+                    <button type="submit" class="w-full md:w-auto bg-[#ff8c00] text-black px-12 py-4 rounded-lg font-bold uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all text-xs" style="box-shadow:0 0 20px rgba(255,140,0,0.25)">
+                        Send Message →
                     </button>
                 </form>
             </section>
 
             <!-- Sidebar -->
-            <aside class="lg:col-span-5 space-y-10">
+            <aside class="lg:col-span-5 space-y-8">
 
                 <!-- Contact Methods -->
-                <div class="space-y-6">
-                    <a href="mailto:hello@twinmmediahouse.com" class="flex items-start gap-5 group">
-                        <div class="w-12 h-12 rounded-xl bg-[#272a2d] flex items-center justify-center text-[#ff8c00] border border-[#40484e]/30 group-hover:bg-[#ff8c00] group-hover:text-black transition-all duration-300 shrink-0">
-                            <span class="material-symbols-outlined">alternate_email</span>
+                <div class="space-y-5">
+                    <a href="mailto:Twinmmediahouse@gmail.com" class="flex items-start gap-5 group glass rounded-xl p-5">
+                        <div class="w-12 h-12 rounded-xl bg-[#ff8c00]/10 flex items-center justify-center text-[#ff8c00] border border-[#ff8c00]/20 group-hover:bg-[#ff8c00] group-hover:text-black transition-all duration-300 shrink-0">
+                            <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">alternate_email</span>
                         </div>
                         <div>
                             <h3 class="text-xs font-bold text-[#8a9298] uppercase tracking-widest mb-1">Email Us</h3>
-                            <p class="text-sm font-semibold text-[#e0e3e6] group-hover:text-[#ff8c00] transition-colors">hello@twinmmediahouse.com</p>
+                            <p class="text-sm font-semibold text-[#e0e3e6] group-hover:text-[#ff8c00] transition-colors">Twinmmediahouse@gmail.com</p>
                             <p class="text-xs text-[#8a9298] mt-0.5">We reply within 2 business hours</p>
                         </div>
                     </a>
-                    <a href="https://wa.me/1234567890" target="_blank" class="flex items-start gap-5 group">
-                        <div class="w-12 h-12 rounded-xl bg-[#272a2d] flex items-center justify-center text-[#ff8c00] border border-[#40484e]/30 group-hover:bg-[#ff8c00] group-hover:text-black transition-all duration-300 shrink-0">
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+                    <a href="https://wa.me/919625832921" target="_blank" class="flex items-start gap-5 group glass rounded-xl p-5">
+                        <div class="w-12 h-12 rounded-xl bg-[#ff8c00]/10 flex items-center justify-center text-[#ff8c00] border border-[#ff8c00]/20 group-hover:bg-[#ff8c00] group-hover:text-black transition-all duration-300 shrink-0">
+                            <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">chat</span>
                         </div>
                         <div>
                             <h3 class="text-xs font-bold text-[#8a9298] uppercase tracking-widest mb-1">WhatsApp</h3>
-                            <p class="text-sm font-semibold text-[#e0e3e6] group-hover:text-[#ff8c00] transition-colors">+91 98765 43210</p>
+                            <p class="text-sm font-semibold text-[#e0e3e6] group-hover:text-[#ff8c00] transition-colors">+91 96258 32921</p>
                             <p class="text-xs text-[#8a9298] mt-0.5">Available Mon–Sat, 9am–9pm IST</p>
                         </div>
                     </a>
-                    <div class="flex items-start gap-5 group">
-                        <div class="w-12 h-12 rounded-xl bg-[#272a2d] flex items-center justify-center text-[#ff8c00] border border-[#40484e]/30 shrink-0">
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xs font-bold text-[#8a9298] uppercase tracking-widest mb-1">Our Studio</h3>
-                            <p class="text-sm font-semibold text-[#e0e3e6]">Mumbai, Maharashtra, India</p>
-                            <p class="text-xs text-[#8a9298] mt-0.5">Serving clients globally</p>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Availability Card -->
@@ -181,18 +182,18 @@
                         <p class="text-xs font-bold text-green-400 uppercase tracking-widest">Currently Accepting Clients</p>
                     </div>
                     <h3 class="text-lg font-bold mb-2">Book a Free Strategy Call</h3>
-                    <p class="text-[#bfc8cf] text-xs leading-relaxed mb-5">30-minute consultation with our PR directors. No pitch, no pressure — just strategy.</p>
+                    <p class="text-[#bfc8cf] text-xs leading-relaxed mb-5">30-minute consultation. No pitch, no pressure — just strategy.</p>
                     <div class="space-y-2">
                         <div class="flex items-center gap-3 text-xs text-[#bfc8cf]">
-                            <span class="material-symbols-outlined text-[#ff8c00] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            <span class="material-symbols-outlined text-[#ff8c00] text-base" style="font-variation-settings:'FILL' 1;">check_circle</span>
                             Brand audit & quick wins identified
                         </div>
                         <div class="flex items-center gap-3 text-xs text-[#bfc8cf]">
-                            <span class="material-symbols-outlined text-[#ff8c00] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                            Custom PR roadmap outline
+                            <span class="material-symbols-outlined text-[#ff8c00] text-base" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                            Custom growth roadmap outline
                         </div>
                         <div class="flex items-center gap-3 text-xs text-[#bfc8cf]">
-                            <span class="material-symbols-outlined text-[#ff8c00] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            <span class="material-symbols-outlined text-[#ff8c00] text-base" style="font-variation-settings:'FILL' 1;">check_circle</span>
                             No commitment required
                         </div>
                     </div>
@@ -220,89 +221,43 @@
                                 <div class="h-full bg-[#ff8c00] rounded-full" style="width:99%"></div>
                             </div>
                         </div>
-                        <div>
-                            <div class="flex justify-between text-xs mb-1.5">
-                                <span class="text-[#bfc8cf]">Strategy Call Booking</span>
-                                <span class="text-[#ff8c00] font-bold">&lt; 24 hours</span>
-                            </div>
-                            <div class="h-1.5 bg-[#272a2d] rounded-full overflow-hidden">
-                                <div class="h-full bg-[#ff8c00] rounded-full" style="width:80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Social Links -->
-                <div class="border-t border-[#40484e]/30 pt-8">
-                    <h3 class="text-xs font-bold text-[#8a9298] uppercase tracking-widest mb-5">Follow Our Work</h3>
-                    <div class="flex gap-3">
-                        <a href="#" class="w-10 h-10 rounded-full bg-[#1d2023] flex items-center justify-center hover:bg-[#ff8c00] hover:text-black transition-all border border-[#40484e]/30 text-[#bfc8cf]">
-                            <span class="material-symbols-outlined text-lg">public</span>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-[#1d2023] flex items-center justify-center hover:bg-[#ff8c00] hover:text-black transition-all border border-[#40484e]/30 text-[#bfc8cf]">
-                            <span class="material-symbols-outlined text-lg">share</span>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-[#1d2023] flex items-center justify-center hover:bg-[#ff8c00] hover:text-black transition-all border border-[#40484e]/30 text-[#bfc8cf]">
-                            <span class="material-symbols-outlined text-lg">photo_camera</span>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-[#1d2023] flex items-center justify-center hover:bg-[#ff8c00] hover:text-black transition-all border border-[#40484e]/30 text-[#bfc8cf]">
-                            <span class="material-symbols-outlined text-lg">work</span>
-                        </a>
                     </div>
                 </div>
             </aside>
         </div>
-
-        <!-- Map / Location Banner -->
-        <div class="mt-20 glass rounded-2xl overflow-hidden relative h-48 flex items-center justify-center">
-            <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle, #40484e 1px, transparent 1px); background-size: 32px 32px;"></div>
-            <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,140,0,0.05) 0%, rgba(10,116,218,0.05) 100%);"></div>
-            <div class="relative z-10 text-center">
-                <span class="material-symbols-outlined text-[#ff8c00] text-4xl mb-3 block" style="font-variation-settings: 'FILL' 1;">location_on</span>
-                <p class="text-[#e0e3e6] font-bold text-lg">Mumbai, Maharashtra, India</p>
-                <p class="text-[#8a9298] text-sm mt-1">Serving PR clients across India, UAE, UK, USA & 12 more countries</p>
-                <div class="flex items-center justify-center gap-2 mt-3">
-                    <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-                    <span class="text-green-400 text-xs font-bold uppercase tracking-widest">Global Operations Active</span>
-                </div>
-            </div>
-        </div>
     </div>
 </main>
 
-<!-- Success Toast -->
-<div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[200] items-center gap-3 bg-[#1d2023] border border-[#ff8c00]/40 text-[#e0e3e6] px-6 py-4 rounded-xl shadow-2xl text-sm font-semibold">
-    <span class="material-symbols-outlined text-[#ff8c00]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-    <span>Message sent! We'll get back to you within 2 hours.</span>
-</div>
-
 <!-- Footer -->
-<footer class="bg-[#0b0f11] border-t border-[#40484e]">
-    <div class="max-w-[1200px] mx-auto px-10 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div class="md:col-span-2">
-            <div class="text-2xl font-bold text-[#e0e3e6] mb-4">Twinm Media House</div>
-            <p class="text-[#bfc8cf] max-w-sm text-sm mb-4">© 2024 Twinm Media House. Crafted for the future of digital interaction.</p>
+<footer class="bg-[#0b0f11] border-t border-[#40484e]/30">
+    <div class="max-w-[1200px] mx-auto px-10 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="md:col-span-1">
+            <div class="flex items-center gap-3 mb-4">
+                <img src="logo.png" alt="TwinM" class="h-9 w-9 rounded-full object-cover">
+                <span class="text-lg font-bold text-[#d2ecff]">TwinM Media House</span>
+            </div>
+            <p class="text-[#bfc8cf] text-sm">© 2025 TwinM Media House. All rights reserved.</p>
         </div>
         <div class="flex flex-col gap-3">
-            <h6 class="font-bold text-[#d2ecff] text-sm">Explore</h6>
+            <h6 class="font-bold text-[#d2ecff] text-sm">Pages</h6>
             <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="index.html">Home</a>
             <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="about.html">About</a>
             <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="services.html">Services</a>
-            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="portfolio.html">Portfolio</a>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="portfolio.html">Results</a>
         </div>
         <div class="flex flex-col gap-3">
-            <h6 class="font-bold text-[#d2ecff] text-sm">Legal</h6>
-            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#">Privacy Policy</a>
-            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#">Terms of Service</a>
+            <h6 class="font-bold text-[#d2ecff] text-sm">Contact</h6>
+            <a class="text-[#bfc8cf] hover:text-[#ff8c00] transition-colors text-sm" href="mailto:Twinmmediahouse@gmail.com">Twinmmediahouse@gmail.com</a>
+            <a class="text-[#bfc8cf] hover:text-[#ff8c00] transition-colors text-sm" href="https://wa.me/919625832921">+91 96258 32921</a>
         </div>
     </div>
 </footer>
 
 <!-- WhatsApp Float -->
-<a href="https://wa.me/1234567890" target="_blank" class="fixed bottom-8 right-8 z-50 group">
+<a href="https://wa.me/919625832921" target="_blank" class="fixed bottom-8 right-8 z-50 group">
     <div class="absolute inset-0 bg-[#ff8c00] blur-xl opacity-20 group-hover:opacity-40 transition-opacity rounded-full"></div>
     <div class="relative bg-[#ff8c00] text-black p-4 rounded-full shadow-2xl flex items-center gap-3 overflow-hidden transition-all duration-300 max-w-[58px] group-hover:max-w-[200px]">
-        <span class="material-symbols-outlined shrink-0" style="font-variation-settings: 'FILL' 1;">chat</span>
+        <span class="material-symbols-outlined shrink-0" style="font-variation-settings:'FILL' 1;">chat</span>
         <span class="whitespace-nowrap font-bold text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">Chat on WhatsApp</span>
     </div>
 </a>
@@ -311,68 +266,24 @@
     document.getElementById('menu-toggle').addEventListener('click', () => {
         document.getElementById('mobile-menu').classList.toggle('open');
     });
-
-    // Budget radio buttons
     document.querySelectorAll('.budget-option input').forEach(radio => {
         radio.addEventListener('change', () => {
             document.querySelectorAll('.budget-btn').forEach(btn => {
-                btn.classList.remove('bg-[#ff8c00]', 'text-black', 'border-[#ff8c00]');
-                btn.classList.add('border-[#40484e]', 'text-[#bfc8cf]');
+                btn.classList.remove('bg-[#ff8c00]','text-black','border-[#ff8c00]');
+                btn.classList.add('border-[#40484e]','text-[#bfc8cf]');
             });
-            const btn = radio.nextElementSibling;
-            btn.classList.add('bg-[#ff8c00]', 'text-black', 'border-[#ff8c00]');
-            btn.classList.remove('border-[#40484e]', 'text-[#bfc8cf]');
+            radio.nextElementSibling.classList.add('bg-[#ff8c00]','text-black','border-[#ff8c00]');
+            radio.nextElementSibling.classList.remove('border-[#40484e]','text-[#bfc8cf]');
         });
     });
+</script>
 
-    // Form submission
-    function handleSubmit(e) {
-        e.preventDefault();
-        const btn = document.getElementById('submitBtn');
-        btn.textContent = 'Sending...';
-        btn.disabled = true;
-        btn.style.opacity = '0.7';
-
-        setTimeout(() => {
-            btn.textContent = 'Send Transmission';
-            btn.disabled = false;
-            btn.style.opacity = '1';
-            e.target.reset();
-            // Reset budget buttons
-            document.querySelectorAll('.budget-btn').forEach(b => {
-                b.classList.remove('bg-[#ff8c00]', 'text-black', 'border-[#ff8c00]');
-                b.classList.add('border-[#40484e]', 'text-[#bfc8cf]');
-            });
-            // Show toast
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 4000);
-        }, 1800);
-    }
-
-    // Mouse glow
-    document.addEventListener('mousemove', (e) => {
-        const x = (e.clientX / window.innerWidth) * 100;
-        const y = (e.clientY / window.innerHeight) * 100;
-        document.body.style.background = `radial-gradient(circle at ${x}% ${y}%, #161c20 0%, #101416 55%)`;
-    });
-
-    // Scroll reveal
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.06 });
-
-    document.querySelectorAll('section, aside > *, header > *, .glass').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
+<!-- Aurora Mouse -->
+<script>
+    const blobs=[{el:document.getElementById('a1'),sx:1.3,sy:1.0},{el:document.getElementById('a2'),sx:-0.9,sy:0.7},{el:document.getElementById('a3'),sx:0.6,sy:-1.2},{el:document.getElementById('a4'),sx:-1.1,sy:-0.8}];
+    let tx=0,ty=0,cx=0,cy=0;
+    document.addEventListener('mousemove',e=>{tx=(e.clientX/window.innerWidth-0.5)*2;ty=(e.clientY/window.innerHeight-0.5)*2;});
+    (function tick(){cx+=(tx-cx)*0.05;cy+=(ty-cy)*0.05;blobs.forEach(b=>{if(!b.el)return;b.el.style.transform=`translate(${cx*160*b.sx}px,${cy*130*b.sy}px)`;});requestAnimationFrame(tick);})();
 </script>
 </body>
 </html>

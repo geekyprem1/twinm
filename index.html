@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <style>
-    body { background-color: #101416; color: #e0e3e6; -webkit-font-smoothing: antialiased; font-family:'Outfit',sans-serif; }
+    body { background-color: #0a0c0e; color: #e0e3e6; -webkit-font-smoothing: antialiased; font-family:'Outfit',sans-serif; }
     .glass { background:rgba(29,32,35,0.6); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border:1px solid rgba(64,72,78,0.3); }
     .text-gradient { background:linear-gradient(135deg,#d2ecff 0%,#ff8c00 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
     .orange-glow { box-shadow:0 0 15px rgba(255,140,0,0.2); }
@@ -17,9 +17,59 @@
     #mobile-menu { display:none; }
     #mobile-menu.open { display:flex; }
     .check-item::before { content:'✔'; color:#ff8c00; margin-right:10px; font-weight:bold; }
+
+    /* ===== AURORA EFFECT — FIXED FULL SCREEN ===== */
+    #aurora-wrap {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+        background: #0a0c0e;
+    }
+    .aurora-blob {
+        position: absolute;
+        border-radius: 50%;
+        will-change: transform;
+    }
+    .a1 {
+        width: 700px; height: 600px;
+        background: radial-gradient(ellipse, rgba(255,100,0,0.6), transparent 70%);
+        filter: blur(100px);
+        top: -10vh; left: -5vw;
+    }
+    .a2 {
+        width: 600px; height: 600px;
+        background: radial-gradient(ellipse, rgba(160,0,255,0.45), transparent 70%);
+        filter: blur(110px);
+        top: -5vh; right: -5vw;
+    }
+    .a3 {
+        width: 550px; height: 500px;
+        background: radial-gradient(ellipse, rgba(0,100,255,0.35), transparent 70%);
+        filter: blur(100px);
+        top: 30vh; left: 25vw;
+    }
+    .a4 {
+        width: 450px; height: 450px;
+        background: radial-gradient(ellipse, rgba(255,160,0,0.4), transparent 70%);
+        filter: blur(90px);
+        top: 15vh; right: 15vw;
+    }
+    .hero-content { position: relative; z-index: 1; }
+    main, nav { position: relative; z-index: 1; }
 </style>
 </head>
 <body class="selection:bg-[#ff8c00] selection:text-black">
+
+<!-- Aurora Background — Fixed Full Screen -->
+<div id="aurora-wrap">
+    <div class="aurora-blob a1" id="a1"></div>
+    <div class="aurora-blob a2" id="a2"></div>
+    <div class="aurora-blob a3" id="a3"></div>
+    <div class="aurora-blob a4" id="a4"></div>
+</div>
 
 <!-- Navigation -->
 <nav class="fixed top-0 w-full z-50 bg-[#1d2023]/80 backdrop-blur-xl border-b border-[#40484e]/30 shadow-sm">
@@ -55,9 +105,9 @@
 <main class="pt-24">
 
     <!-- ===== HERO SECTION ===== -->
-    <section class="max-w-[1200px] mx-auto px-10 pt-20 pb-32 text-center relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[600px] bg-[#ff8c00]/8 blur-[140px] rounded-full -z-10 pointer-events-none"></div>
+    <section class="w-full px-10 pt-20 pb-32 text-center relative">
 
+        <div class="hero-content max-w-[1200px] mx-auto">
         <p class="text-[11px] font-semibold tracking-[0.45em] text-[#ff8c00] uppercase mb-6">Performance-Driven Digital Agency</p>
 
         <h1 class="font-bold mb-6 leading-tight text-gradient" style="font-size:clamp(38px,5.5vw,72px); line-height:1.1;">
@@ -87,11 +137,13 @@
                 <p class="text-[#ff8c00] font-bold text-lg mb-1">Posts don't grow brands</p>
                 <p class="text-[#8a9298] text-sm">Strategy does</p>
             </div>
+
             <div class="glass rounded-xl p-5 border-l-4 border-[#ff8c00]">
                 <p class="text-[#ff8c00] font-bold text-lg mb-1">Traffic doesn't matter</p>
                 <p class="text-[#8a9298] text-sm">Conversions do</p>
             </div>
         </div>
+        </div><!-- /hero-content -->
     </section>
 
     <!-- ===== REALITY CHECK SECTION ===== -->
@@ -321,6 +373,40 @@
         el.style.transition='opacity 0.7s ease, transform 0.7s ease';
         observer.observe(el);
     });
+</script>
+
+<!-- Aurora Mouse Interaction -->
+<script>
+    const blobs = [
+        { el: document.getElementById('a1'), sx: 1.3,  sy: 1.0  },
+        { el: document.getElementById('a2'), sx: -0.9, sy: 0.7  },
+        { el: document.getElementById('a3'), sx: 0.6,  sy: -1.2 },
+        { el: document.getElementById('a4'), sx: -1.1, sy: -0.8 },
+    ];
+
+    let tx = 0, ty = 0; // target (mouse)
+    let cx = 0, cy = 0; // current (lerped)
+
+    document.addEventListener('mousemove', (e) => {
+        // Normalize mouse: center = 0, edges = ±1
+        tx = (e.clientX / window.innerWidth  - 0.5) * 2;
+        ty = (e.clientY / window.innerHeight - 0.5) * 2;
+    });
+
+    (function tick() {
+        // Smooth lerp — feels heavy/fluid like aurora
+        cx += (tx - cx) * 0.05;
+        cy += (ty - cy) * 0.05;
+
+        blobs.forEach(b => {
+            if (!b.el) return;
+            const x = cx * 160 * b.sx;
+            const y = cy * 130 * b.sy;
+            b.el.style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+        requestAnimationFrame(tick);
+    })();
 </script>
 </body>
 </html>

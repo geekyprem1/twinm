@@ -8,7 +8,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <style>
-    body { background-color:#101416; color:#e0e3e6; -webkit-font-smoothing:antialiased; font-family:'Outfit',sans-serif; }
+    body { background-color:#0a0c0e; color:#e0e3e6; -webkit-font-smoothing:antialiased; font-family:'Outfit',sans-serif; }
+    #aurora-wrap { position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; z-index:0; overflow:hidden; background:#0a0c0e; }
+    .aurora-blob { position:absolute; border-radius:50%; will-change:transform; }
+    .a1 { width:700px; height:600px; background:radial-gradient(ellipse, rgba(255,100,0,0.6), transparent 70%); filter:blur(100px); top:-10vh; left:-5vw; }
+    .a2 { width:600px; height:600px; background:radial-gradient(ellipse, rgba(160,0,255,0.45), transparent 70%); filter:blur(110px); top:-5vh; right:-5vw; }
+    .a3 { width:550px; height:500px; background:radial-gradient(ellipse, rgba(0,100,255,0.35), transparent 70%); filter:blur(100px); top:30vh; left:25vw; }
+    .a4 { width:450px; height:450px; background:radial-gradient(ellipse, rgba(255,160,0,0.4), transparent 70%); filter:blur(90px); top:15vh; right:15vw; }
+    main, nav, footer { position:relative; z-index:1; }
     .glass { background:rgba(29,32,35,0.6); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(64,72,78,0.3); }
     .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
     #mobile-menu { display:none; }
@@ -20,6 +27,12 @@
 </style>
 </head>
 <body>
+<div id="aurora-wrap">
+    <div class="aurora-blob a1" id="a1"></div>
+    <div class="aurora-blob a2" id="a2"></div>
+    <div class="aurora-blob a3" id="a3"></div>
+    <div class="aurora-blob a4" id="a4"></div>
+</div>
 
 <!-- Navigation -->
 <nav class="fixed top-0 w-full z-50 bg-[#1d2023]/80 backdrop-blur-xl border-b border-[#40484e]/30 shadow-sm">
@@ -338,6 +351,12 @@
         el.style.transition='opacity 0.6s ease,transform 0.6s ease';
         observer.observe(el);
     });
+</script>
+<script>
+    const blobs=[{el:document.getElementById('a1'),sx:1.3,sy:1.0},{el:document.getElementById('a2'),sx:-0.9,sy:0.7},{el:document.getElementById('a3'),sx:0.6,sy:-1.2},{el:document.getElementById('a4'),sx:-1.1,sy:-0.8}];
+    let tx=0,ty=0,cx=0,cy=0;
+    document.addEventListener('mousemove',e=>{tx=(e.clientX/window.innerWidth-0.5)*2;ty=(e.clientY/window.innerHeight-0.5)*2;});
+    (function tick(){cx+=(tx-cx)*0.05;cy+=(ty-cy)*0.05;blobs.forEach(b=>{if(!b.el)return;b.el.style.transform=`translate(${cx*160*b.sx}px,${cy*130*b.sy}px)`;});requestAnimationFrame(tick);})();
 </script>
 </body>
 </html>
