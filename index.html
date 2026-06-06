@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>TwinM Media House | Digital Growth Agency</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<style>
+    body { background-color: #101416; color: #e0e3e6; -webkit-font-smoothing: antialiased; font-family:'Outfit',sans-serif; }
+    .glass { background:rgba(29,32,35,0.6); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border:1px solid rgba(64,72,78,0.3); }
+    .text-gradient { background:linear-gradient(135deg,#d2ecff 0%,#ff8c00 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .orange-glow { box-shadow:0 0 15px rgba(255,140,0,0.2); }
+    .orange-glow:hover { box-shadow:0 0 25px 2px rgba(255,140,0,0.4); }
+    .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+    #mobile-menu { display:none; }
+    #mobile-menu.open { display:flex; }
+    .check-item::before { content:'✔'; color:#ff8c00; margin-right:10px; font-weight:bold; }
+</style>
+</head>
+<body class="selection:bg-[#ff8c00] selection:text-black">
+
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-[#1d2023]/80 backdrop-blur-xl border-b border-[#40484e]/30 shadow-sm">
+    <div class="max-w-[1200px] mx-auto flex justify-between items-center px-10 py-4">
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="logo.png" alt="TwinM Media House" class="h-10 w-10 rounded-full object-cover">
+            <span class="text-[22px] font-bold tracking-tight text-[#d2ecff]">TwinM Media House</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+            <a href="index.html" class="text-[#d2ecff] font-bold border-b-2 border-[#d2ecff] pb-1 text-sm">Home</a>
+            <a href="about.html" class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm">About</a>
+            <a href="services.html" class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm">Services</a>
+            <a href="portfolio.html" class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm">Results</a>
+            <a href="contact.html" class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm">Contact</a>
+        </div>
+        <a href="contact.html" class="hidden md:block bg-[#ff8c00] text-black px-6 py-2 rounded-full font-bold hover:scale-95 transition-transform orange-glow text-sm">
+            Get Free Audit
+        </a>
+        <button id="menu-toggle" class="md:hidden text-[#d2ecff]">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden flex-col bg-[#1d2023] border-t border-[#40484e]/30 px-10 py-6 gap-4">
+        <a href="index.html" class="text-[#d2ecff] font-bold text-sm">Home</a>
+        <a href="about.html" class="text-[#bfc8cf] text-sm">About</a>
+        <a href="services.html" class="text-[#bfc8cf] text-sm">Services</a>
+        <a href="portfolio.html" class="text-[#bfc8cf] text-sm">Results</a>
+        <a href="contact.html" class="text-[#bfc8cf] text-sm">Contact</a>
+        <a href="contact.html" class="bg-[#ff8c00] text-black px-6 py-2 rounded-full font-bold text-sm text-center">Get Free Audit</a>
+    </div>
+</nav>
+
+<main class="pt-24">
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="max-w-[1200px] mx-auto px-10 pt-20 pb-32 text-center relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[600px] bg-[#ff8c00]/8 blur-[140px] rounded-full -z-10 pointer-events-none"></div>
+
+        <p class="text-[11px] font-semibold tracking-[0.45em] text-[#ff8c00] uppercase mb-6">Performance-Driven Digital Agency</p>
+
+        <h1 class="font-bold mb-6 leading-tight text-gradient" style="font-size:clamp(38px,5.5vw,72px); line-height:1.1;">
+            Stop Spending on Marketing.<br>Start Growing Your Revenue.
+        </h1>
+
+        <p class="text-[#bfc8cf] max-w-2xl mx-auto mb-12 text-base leading-relaxed">
+            Most agencies focus on followers. We focus on <strong class="text-[#e0e3e6]">real business growth</strong> through content and performance marketing.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="contact.html" class="bg-[#ff8c00] text-black px-10 py-4 rounded-lg font-bold orange-glow hover:scale-105 transition-all text-base">
+                Get a Free Growth Audit
+            </a>
+            <a href="services.html" class="border border-[#40484e] bg-[#191c1f]/50 px-10 py-4 rounded-lg font-bold text-[#e0e3e6] hover:bg-[#272a2d] transition-all text-base">
+                See Our Services →
+            </a>
+        </div>
+
+        <!-- Reality Check Cards -->
+        <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto">
+            <div class="glass rounded-xl p-5 border-l-4 border-[#ff8c00]">
+                <p class="text-[#ff8c00] font-bold text-lg mb-1">Followers don't pay bills</p>
+                <p class="text-[#8a9298] text-sm">Revenue does</p>
+            </div>
+            <div class="glass rounded-xl p-5 border-l-4 border-[#ff8c00]">
+                <p class="text-[#ff8c00] font-bold text-lg mb-1">Posts don't grow brands</p>
+                <p class="text-[#8a9298] text-sm">Strategy does</p>
+            </div>
+            <div class="glass rounded-xl p-5 border-l-4 border-[#ff8c00]">
+                <p class="text-[#ff8c00] font-bold text-lg mb-1">Traffic doesn't matter</p>
+                <p class="text-[#8a9298] text-sm">Conversions do</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== REALITY CHECK SECTION ===== -->
+    <section class="bg-[#0b0f11] py-20 border-y border-[#40484e]/20">
+        <div class="max-w-[1200px] mx-auto px-10 text-center">
+            <h2 class="font-bold mb-4 text-[#e0e3e6]" style="font-size:clamp(28px,4vw,48px);">Performance Over Platforms.<br><span class="text-[#ff8c00]">Revenue Over Vanity.</span></h2>
+            <p class="text-[#bfc8cf] max-w-xl mx-auto text-sm leading-relaxed">We measure success by how much your business grows — not by likes, shares, or impressions.</p>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section class="max-w-[1200px] mx-auto px-10 py-32">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div>
+                <span class="text-[11px] font-semibold tracking-[0.3em] text-[#ff8c00] uppercase">What We Do</span>
+                <h2 class="font-bold mt-3 text-[#e0e3e6]" style="font-size:clamp(28px,4vw,44px);">Our Services</h2>
+            </div>
+            <p class="max-w-md text-[#bfc8cf] text-sm leading-relaxed">End-to-end digital growth solutions designed to drive real business results — not just online presence.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- Service 1 -->
+            <div class="glass p-8 rounded-2xl hover:border-[#ff8c00]/50 transition-all duration-500 group">
+                <span class="material-symbols-outlined text-[#ff8c00] text-4xl mb-6 block" style="font-variation-settings:'FILL' 1;">video_library</span>
+                <h3 class="text-[22px] font-bold mb-3 group-hover:text-[#ff8c00] transition-colors">Content & Social Media</h3>
+                <p class="text-[#bfc8cf] mb-5 text-sm leading-relaxed">We don't just post — we build a strategic digital presence that attracts, engages, and converts your audience through high-impact content.</p>
+                <ul class="space-y-2 text-sm text-[#bfc8cf] mb-6">
+                    <li class="check-item">Monthly Content Planning</li>
+                    <li class="check-item">High-Conversion Reels</li>
+                    <li class="check-item">Page Management</li>
+                </ul>
+                <a href="services.html" class="flex items-center gap-2 text-[#ff8c00] font-bold text-sm group-hover:gap-4 transition-all">
+                    Learn More <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="glass p-8 rounded-2xl hover:border-[#ff8c00]/50 transition-all duration-500 group">
+                <span class="material-symbols-outlined text-[#ff8c00] text-4xl mb-6 block" style="font-variation-settings:'FILL' 1;">ads_click</span>
+                <h3 class="text-[22px] font-bold mb-3 group-hover:text-[#ff8c00] transition-colors">Digital Growth & Ads</h3>
+                <p class="text-[#bfc8cf] mb-5 text-sm leading-relaxed">Meta & Google Ads, Lead Generation Campaigns, and Funnel Setup — all built to maximize your return on ad spend.</p>
+                <ul class="space-y-2 text-sm text-[#bfc8cf] mb-6">
+                    <li class="check-item">Meta & Google Ads</li>
+                    <li class="check-item">Lead Generation Campaigns</li>
+                    <li class="check-item">Funnel Setup & Optimization</li>
+                </ul>
+                <a href="services.html" class="flex items-center gap-2 text-[#ff8c00] font-bold text-sm group-hover:gap-4 transition-all">
+                    Learn More <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="glass p-8 rounded-2xl hover:border-[#ff8c00]/50 transition-all duration-500 group">
+                <span class="material-symbols-outlined text-[#ff8c00] text-4xl mb-6 block" style="font-variation-settings:'FILL' 1;">trending_up</span>
+                <h3 class="text-[22px] font-bold mb-3 group-hover:text-[#ff8c00] transition-colors">Conversion & Sales Support</h3>
+                <p class="text-[#bfc8cf] mb-5 text-sm leading-relaxed">Generating leads is only half the job. We help you qualify, improve follow-ups, and convert leads into paying customers.</p>
+                <ul class="space-y-2 text-sm text-[#bfc8cf] mb-6">
+                    <li class="check-item">Lead Qualification System</li>
+                    <li class="check-item">Sales Process Alignment</li>
+                    <li class="check-item">Conversion Rate Improvement</li>
+                </ul>
+                <a href="services.html" class="flex items-center gap-2 text-[#ff8c00] font-bold text-sm group-hover:gap-4 transition-all">
+                    Learn More <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
+            </div>
+
+        </div>
+        <div class="text-center mt-12">
+            <a href="services.html" class="border border-[#40484e] px-8 py-3 rounded-lg text-[#bfc8cf] hover:bg-[#272a2d] transition-all text-sm font-semibold">
+                View All 5 Services →
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== WHY TWINM ===== -->
+    <section class="bg-[#0b0f11] py-32">
+        <div class="max-w-[1200px] mx-auto px-10">
+            <div class="text-center mb-16">
+                <span class="text-[11px] font-semibold tracking-[0.4em] text-[#ff8c00] uppercase block mb-3">Why Choose Us</span>
+                <h2 class="font-bold text-[#e0e3e6]" style="font-size:clamp(28px,4vw,44px);">We Don't Just Run Ads.<br>We Build Growth Systems.</h2>
+                <div class="h-1 w-24 bg-[#ff8c00] mx-auto rounded-full mt-5"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass p-8 rounded-2xl text-center hover:border-[#ff8c00]/40 transition-all group">
+                    <div class="w-16 h-16 rounded-full bg-[#ff8c00]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#ff8c00]/20 transition-colors">
+                        <span class="material-symbols-outlined text-[#ff8c00] text-3xl" style="font-variation-settings:'FILL' 1;">bar_chart</span>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Focus on Real Results</h4>
+                    <p class="text-[#bfc8cf] text-sm leading-relaxed">No vanity metrics. Every campaign is measured by real business outcomes — leads, conversions, and revenue.</p>
+                </div>
+                <div class="glass p-8 rounded-2xl text-center hover:border-[#ff8c00]/40 transition-all group bg-[#ff8c00]/5">
+                    <div class="w-16 h-16 rounded-full bg-[#ff8c00]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#ff8c00]/20 transition-colors">
+                        <span class="material-symbols-outlined text-[#ff8c00] text-3xl" style="font-variation-settings:'FILL' 1;">person_pin</span>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Personalized Strategy</h4>
+                    <p class="text-[#bfc8cf] text-sm leading-relaxed">Every business is different. We build custom strategies tailored to your specific goals, audience, and market.</p>
+                </div>
+                <div class="glass p-8 rounded-2xl text-center hover:border-[#ff8c00]/40 transition-all group">
+                    <div class="w-16 h-16 rounded-full bg-[#ff8c00]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#ff8c00]/20 transition-colors">
+                        <span class="material-symbols-outlined text-[#ff8c00] text-3xl" style="font-variation-settings:'FILL' 1;">autorenew</span>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Continuous Optimization</h4>
+                    <p class="text-[#bfc8cf] text-sm leading-relaxed">Fast execution plus constant testing and improvement. We scale what works and fix what doesn't.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RESULTS SECTION ===== -->
+    <section class="max-w-[1200px] mx-auto px-10 py-32">
+        <div class="text-center mb-16">
+            <h2 class="font-bold text-[#e0e3e6] mb-4" style="font-size:clamp(28px,4vw,44px);">We Focus on Results That Matter</h2>
+            <p class="text-[#bfc8cf] max-w-xl mx-auto text-sm">Not impressions, not reach — real measurable growth for your business.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass rounded-2xl p-8 text-center border border-[#ff8c00]/20 hover:border-[#ff8c00]/60 transition-all">
+                <span class="material-symbols-outlined text-[#ff8c00] text-4xl mb-4 block" style="font-variation-settings:'FILL' 1;">groups</span>
+                <h4 class="font-bold text-lg mb-2">Consistent Lead Generation</h4>
+                <p class="text-[#bfc8cf] text-sm leading-relaxed">Helping businesses generate a steady, predictable flow of qualified leads every single month.</p>
+            </div>
+            <div class="glass rounded-2xl p-8 text-center border border-[#ff8c00]/20 hover:border-[#ff8c00]/60 transition-all">
+                <span class="material-symbols-outlined text-[#ff8c00] text-4xl mb-4 block" style="font-variation-settings:'FILL' 1;">show_chart</span>
+                <h4 class="font-bold text-lg mb-2">Reach, Engagement & Conversions</h4>
+                <p class="text-[#bfc8cf] text-sm leading-relaxed">Improving all metrics that actually impact your bottom line — not just surface-level numbers.</p>
+            </div>
+            <div class="glass rounded-2xl p-8 text-center border border-[#ff8c00]/20 hover:border-[#ff8c00]/60 transition-all">
+                <span class="material-symbols-outlined text-[#ff8c00] text-4xl mb-4 block" style="font-variation-settings:'FILL' 1;">rocket_launch</span>
+                <h4 class="font-bold text-lg mb-2">Long-Term Growth Systems</h4>
+                <p class="text-[#bfc8cf] text-sm leading-relaxed">Building scalable systems that keep delivering results even as your business grows.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHO WE WORK WITH ===== -->
+    <section class="bg-[#0b0f11] py-24 border-y border-[#40484e]/20">
+        <div class="max-w-[1200px] mx-auto px-10 text-center">
+            <h2 class="font-bold text-[#e0e3e6] mb-12" style="font-size:clamp(26px,4vw,42px);">Who We Work With</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="glass rounded-xl p-6 border-l-4 border-[#ff8c00] text-left">
+                    <span class="material-symbols-outlined text-[#ff8c00] mb-3 block" style="font-variation-settings:'FILL' 1;">business</span>
+                    <h4 class="font-bold mb-2">Startups & MSMEs</h4>
+                    <p class="text-[#bfc8cf] text-sm">Building their digital presence from scratch and scaling fast.</p>
+                </div>
+                <div class="glass rounded-xl p-6 border-l-4 border-[#ff8c00] text-left">
+                    <span class="material-symbols-outlined text-[#ff8c00] mb-3 block" style="font-variation-settings:'FILL' 1;">handyman</span>
+                    <h4 class="font-bold mb-2">Service-Based Businesses</h4>
+                    <p class="text-[#bfc8cf] text-sm">Looking for consistent, high-quality leads every month.</p>
+                </div>
+                <div class="glass rounded-xl p-6 border-l-4 border-[#ff8c00] text-left">
+                    <span class="material-symbols-outlined text-[#ff8c00] mb-3 block" style="font-variation-settings:'FILL' 1;">storefront</span>
+                    <h4 class="font-bold mb-2">Growth-Focused Brands</h4>
+                    <p class="text-[#bfc8cf] text-sm">That want real results, not just online visibility.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="max-w-[1200px] mx-auto px-10 py-32 text-center relative">
+        <div class="glass rounded-3xl p-16 relative overflow-hidden">
+            <div class="absolute -top-20 -right-20 w-64 h-64 bg-[#ff8c00]/10 blur-[100px] rounded-full pointer-events-none"></div>
+            <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-[#0a74da]/10 blur-[100px] rounded-full pointer-events-none"></div>
+            <h2 class="font-bold text-[#e0e3e6] mb-4 relative z-10" style="font-size:clamp(28px,4vw,48px);">Ready to Grow Your Business?</h2>
+            <p class="text-[#bfc8cf] text-base mb-10 max-w-xl mx-auto relative z-10">Let's build a strategy that actually works for you. Book a free audit — no commitment, no pressure.</p>
+            <a href="contact.html" class="inline-block bg-[#ff8c00] text-black px-12 py-4 rounded-lg font-bold hover:scale-105 transition-all orange-glow text-base uppercase tracking-wider relative z-10">
+                Book a Free Audit
+            </a>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#0b0f11] border-t border-[#40484e]">
+    <div class="max-w-[1200px] mx-auto px-10 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+            <div class="flex items-center gap-3 mb-4">
+                <img src="logo.png" alt="TwinM Media House" class="h-9 w-9 rounded-full object-cover">
+                <span class="text-xl font-bold text-[#e0e3e6]">TwinM Media House</span>
+            </div>
+            <p class="text-[#bfc8cf] text-sm max-w-sm leading-relaxed">We built the agency we wished existed — focused on real business growth, not vanity metrics.</p>
+            <p class="text-[#8a9298] text-xs mt-4">© 2024 TwinM Media House. All rights reserved.</p>
+        </div>
+        <div class="flex flex-col gap-3">
+            <h6 class="font-bold text-[#d2ecff] text-sm">Quick Links</h6>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="about.html">About Us</a>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="services.html">Services</a>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="portfolio.html">Results</a>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="contact.html">Contact</a>
+        </div>
+        <div class="flex flex-col gap-3">
+            <h6 class="font-bold text-[#d2ecff] text-sm">Connect</h6>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#">Instagram</a>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#">LinkedIn</a>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#">Facebook</a>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/1234567890" target="_blank" class="fixed bottom-8 right-8 z-50 group">
+    <div class="absolute inset-0 bg-[#ff8c00] blur-xl opacity-20 group-hover:opacity-40 transition-opacity rounded-full"></div>
+    <div class="relative bg-[#ff8c00] text-black p-4 rounded-full shadow-2xl flex items-center gap-3 overflow-hidden transition-all duration-300 max-w-[58px] group-hover:max-w-[210px]">
+        <span class="material-symbols-outlined shrink-0" style="font-variation-settings:'FILL' 1;">chat</span>
+        <span class="whitespace-nowrap font-bold text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">Chat on WhatsApp</span>
+    </div>
+</a>
+
+<script>
+    document.getElementById('menu-toggle').addEventListener('click',()=>{
+        document.getElementById('mobile-menu').classList.toggle('open');
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.style.opacity='1';
+                entry.target.style.transform='translateY(0)';
+            }
+        });
+    },{threshold:0.08});
+
+    document.querySelectorAll('.glass, section').forEach(el=>{
+        el.style.opacity='0';
+        el.style.transform='translateY(20px)';
+        el.style.transition='opacity 0.7s ease, transform 0.7s ease';
+        observer.observe(el);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Portfolio | TWINM Media House</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<style>
+    body { background-color: #101416; color: #e0e3e6; -webkit-font-smoothing: antialiased; font-family: 'Outfit', sans-serif; }
+    .glass { background: rgba(29,32,35,0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(64,72,78,0.3); }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+
+    /* Masonry */
+    .masonry { columns: 1; column-gap: 24px; }
+    @media(min-width:640px) { .masonry { columns: 2; } }
+    @media(min-width:1024px) { .masonry { columns: 3; } }
+    .masonry-item { break-inside: avoid; margin-bottom: 24px; }
+
+    /* Filter active state */
+    .filter-btn.active { background: #ff8c00; color: #000; }
+
+    /* Modal animation */
+    @keyframes fadeIn { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
+    .modal-content { animation: fadeIn 0.25s ease; }
+
+    /* Card hover */
+    .portfolio-card .overlay { opacity: 0; transition: opacity 0.4s ease; }
+    .portfolio-card:hover .overlay { opacity: 1; }
+    .portfolio-card img { transition: transform 0.6s ease; }
+    .portfolio-card:hover img { transform: scale(1.06); }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-[#1d2023]/80 backdrop-blur-xl border-b border-[#40484e]/30 shadow-sm">
+    <div class="max-w-[1200px] mx-auto flex justify-between items-center px-10 py-4">
+        <a href="index.html" class="text-[28px] font-bold tracking-tight text-[#d2ecff]">Twinm Media House</a>
+        <div class="hidden md:flex items-center gap-8">
+            <a href="index.html" class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm">Home</a>
+            <a href="about.html" class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm">About</a>
+            <a href="services.html" class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm">Services</a>
+            <a href="portfolio.html" class="text-[#d2ecff] font-bold border-b-2 border-[#d2ecff] pb-1 text-sm">Portfolio</a>
+            <a href="contact.html" class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm">Contact</a>
+        </div>
+        <a href="contact.html" class="hidden md:block bg-[#ff8c00] text-black px-6 py-2 rounded-full font-bold hover:scale-95 transition-transform text-sm" style="box-shadow:0 0 15px rgba(255,140,0,0.2)">Book a Call</a>
+        <button id="menu-toggle" class="md:hidden text-[#d2ecff]"><span class="material-symbols-outlined">menu</span></button>
+    </div>
+    <div id="mobile-menu" class="md:hidden flex-col bg-[#1d2023] border-t border-[#40484e]/30 px-10 py-6 gap-4">
+        <a href="index.html" class="text-[#bfc8cf] text-sm">Home</a>
+        <a href="about.html" class="text-[#bfc8cf] text-sm">About</a>
+        <a href="services.html" class="text-[#bfc8cf] text-sm">Services</a>
+        <a href="portfolio.html" class="text-[#d2ecff] font-bold text-sm">Portfolio</a>
+        <a href="contact.html" class="text-[#bfc8cf] text-sm">Contact</a>
+        <a href="contact.html" class="bg-[#ff8c00] text-black px-6 py-2 rounded-full font-bold text-sm text-center">Book a Call</a>
+    </div>
+</nav>
+
+<main class="pt-32 pb-24 max-w-[1200px] mx-auto px-10">
+
+    <!-- Header -->
+    <header class="mb-16 relative">
+        <div class="absolute top-0 left-0 w-[400px] h-[200px] bg-[#ff8c00]/6 blur-[100px] rounded-full -z-10 pointer-events-none"></div>
+        <span class="text-xs font-semibold tracking-[0.4em] text-[#89ceff] uppercase block mb-4">Curation Vol. 01</span>
+        <h1 class="font-bold text-[#d2ecff] mb-6 leading-tight" style="font-size: clamp(36px, 5vw, 72px);">Architecting Digital Legacies.</h1>
+        <p class="text-[#bfc8cf] max-w-xl text-sm leading-relaxed">A showcase of precision-engineered PR campaigns, visual identities, cinematic narratives, and strategic media orchestration.</p>
+    </header>
+
+    <!-- Filter Chips -->
+    <div class="flex flex-wrap gap-3 mb-12">
+        <button class="filter-btn active px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest border border-[#ff8c00] transition-all" data-filter="all">All Projects</button>
+        <button class="filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest bg-[#272a2d] text-[#bfc8cf] border border-[#40484e] hover:bg-[#323538] transition-all" data-filter="pr">PR Strategy</button>
+        <button class="filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest bg-[#272a2d] text-[#bfc8cf] border border-[#40484e] hover:bg-[#323538] transition-all" data-filter="branding">Branding</button>
+        <button class="filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest bg-[#272a2d] text-[#bfc8cf] border border-[#40484e] hover:bg-[#323538] transition-all" data-filter="social">Social Media</button>
+        <button class="filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest bg-[#272a2d] text-[#bfc8cf] border border-[#40484e] hover:bg-[#323538] transition-all" data-filter="content">Content</button>
+        <button class="filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest bg-[#272a2d] text-[#bfc8cf] border border-[#40484e] hover:bg-[#323538] transition-all" data-filter="crisis">Crisis PR</button>
+    </div>
+
+    <!-- Masonry Grid -->
+    <div class="masonry" id="portfolio-grid">
+
+        <!-- Card 1 -->
+        <div class="masonry-item portfolio-card cursor-pointer" data-category="pr" onclick="openModal(0)">
+            <div class="relative overflow-hidden rounded-xl glass">
+                <div class="w-full h-56 bg-gradient-to-br from-[#0a74da]/30 to-[#0b0f11] flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[#0a74da] text-7xl opacity-60" style="font-variation-settings: 'FILL' 1;">newspaper</span>
+                </div>
+                <div class="overlay absolute inset-0 bg-gradient-to-t from-[#0b0f11]/95 via-[#0b0f11]/40 to-transparent flex flex-col justify-end p-6">
+                    <span class="text-[#89ceff] text-xs font-bold uppercase tracking-widest mb-2">PR Strategy</span>
+                    <h3 class="text-[#d2ecff] text-xl font-bold">NovaTech Launch</h3>
+                    <p class="text-[#bfc8cf] text-xs mt-1">500+ media placements in 30 days</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="masonry-item portfolio-card cursor-pointer" data-category="branding" onclick="openModal(1)">
+            <div class="relative overflow-hidden rounded-xl glass">
+                <div class="w-full h-72 bg-gradient-to-br from-[#ff8c00]/20 to-[#0b0f11] flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[#ff8c00] text-7xl opacity-60" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                </div>
+                <div class="overlay absolute inset-0 bg-gradient-to-t from-[#0b0f11]/95 via-[#0b0f11]/40 to-transparent flex flex-col justify-end p-6">
+                    <span class="text-[#89ceff] text-xs font-bold uppercase tracking-widest mb-2">Branding</span>
+                    <h3 class="text-[#d2ecff] text-xl font-bold">Linear Core Identity</h3>
+                    <p class="text-[#bfc8cf] text-xs mt-1">Full visual identity system</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="masonry-item portfolio-card cursor-pointer" data-category="social" onclick="openModal(2)">
+            <div class="relative overflow-hidden rounded-xl glass">
+                <div class="w-full h-48 bg-gradient-to-br from-[#89ceff]/20 to-[#0b0f11] flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[#89ceff] text-7xl opacity-60" style="font-variation-settings: 'FILL' 1;">campaign</span>
+                </div>
+                <div class="overlay absolute inset-0 bg-gradient-to-t from-[#0b0f11]/95 via-[#0b0f11]/40 to-transparent flex flex-col justify-end p-6">
+                    <span class="text-[#89ceff] text-xs font-bold uppercase tracking-widest mb-2">Social Media</span>
+                    <h3 class="text-[#d2ecff] text-xl font-bold">Velocity Feed X</h3>
+                    <p class="text-[#bfc8cf] text-xs mt-1">10x engagement growth in 60 days</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="masonry-item portfolio-card cursor-pointer" data-category="crisis" onclick="openModal(3)">
+            <div class="relative overflow-hidden rounded-xl glass">
+                <div class="w-full h-64 bg-gradient-to-br from-[#93000a]/30 to-[#0b0f11] flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[#ffb4ab] text-7xl opacity-60" style="font-variation-settings: 'FILL' 1;">shield</span>
+                </div>
+                <div class="overlay absolute inset-0 bg-gradient-to-t from-[#0b0f11]/95 via-[#0b0f11]/40 to-transparent flex flex-col justify-end p-6">
+                    <span class="text-[#89ceff] text-xs font-bold uppercase tracking-widest mb-2">Crisis PR</span>
+                    <h3 class="text-[#d2ecff] text-xl font-bold">Sentinel Rebound</h3>
+                    <p class="text-[#bfc8cf] text-xs mt-1">Reputation recovered in 72 hours</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="masonry-item portfolio-card cursor-pointer" data-category="content" onclick="openModal(4)">
+            <div class="relative overflow-hidden rounded-xl glass">
+                <div class="w-full h-56 bg-gradient-to-br from-[#265a82]/40 to-[#0b0f11] flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[#9bcbf9] text-7xl opacity-60" style="font-variation-settings: 'FILL' 1;">video_library</span>
+                </div>
+                <div class="overlay absolute inset-0 bg-gradient-to-t from-[#0b0f11]/95 via-[#0b0f11]/40 to-transparent flex flex-col justify-end p-6">
+                    <span class="text-[#89ceff] text-xs font-bold uppercase tracking-widest mb-2">Content</span>
+                    <h3 class="text-[#d2ecff] text-xl font-bold">Aura Visual Narrative</h3>
+                    <p class="text-[#bfc8cf] text-xs mt-1">Cinematic brand film series</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="masonry-item portfolio-card cursor-pointer" data-category="branding" onclick="openModal(5)">
+            <div class="relative overflow-hidden rounded-xl glass">
+                <div class="w-full h-44 bg-gradient-to-br from-[#ff8c00]/15 to-[#0b0f11] flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[#ff8c00] text-7xl opacity-60" style="font-variation-settings: 'FILL' 1;">draw</span>
+                </div>
+                <div class="overlay absolute inset-0 bg-gradient-to-t from-[#0b0f11]/95 via-[#0b0f11]/40 to-transparent flex flex-col justify-end p-6">
+                    <span class="text-[#89ceff] text-xs font-bold uppercase tracking-widest mb-2">Branding</span>
+                    <h3 class="text-[#d2ecff] text-xl font-bold">Quantum Logo System</h3>
+                    <p class="text-[#bfc8cf] text-xs mt-1">Complete logo & brand toolkit</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="masonry-item portfolio-card cursor-pointer" data-category="pr" onclick="openModal(6)">
+            <div class="relative overflow-hidden rounded-xl glass">
+                <div class="w-full h-60 bg-gradient-to-br from-[#0a74da]/20 to-[#0b0f11] flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[#89ceff] text-7xl opacity-60" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+                </div>
+                <div class="overlay absolute inset-0 bg-gradient-to-t from-[#0b0f11]/95 via-[#0b0f11]/40 to-transparent flex flex-col justify-end p-6">
+                    <span class="text-[#89ceff] text-xs font-bold uppercase tracking-widest mb-2">PR Strategy</span>
+                    <h3 class="text-[#d2ecff] text-xl font-bold">Apex Growth Campaign</h3>
+                    <p class="text-[#bfc8cf] text-xs mt-1">300% brand awareness increase</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="masonry-item portfolio-card cursor-pointer" data-category="social" onclick="openModal(7)">
+            <div class="relative overflow-hidden rounded-xl glass">
+                <div class="w-full h-52 bg-gradient-to-br from-[#89ceff]/15 to-[#0b0f11] flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[#89ceff] text-7xl opacity-60" style="font-variation-settings: 'FILL' 1;">groups</span>
+                </div>
+                <div class="overlay absolute inset-0 bg-gradient-to-t from-[#0b0f11]/95 via-[#0b0f11]/40 to-transparent flex flex-col justify-end p-6">
+                    <span class="text-[#89ceff] text-xs font-bold uppercase tracking-widest mb-2">Social Media</span>
+                    <h3 class="text-[#d2ecff] text-xl font-bold">Community Builder Pro</h3>
+                    <p class="text-[#bfc8cf] text-xs mt-1">120K followers in 90 days</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="masonry-item portfolio-card cursor-pointer" data-category="content" onclick="openModal(8)">
+            <div class="relative overflow-hidden rounded-xl glass">
+                <div class="w-full h-68 bg-gradient-to-br from-[#265a82]/30 to-[#0b0f11] flex items-center justify-center" style="height:270px">
+                    <span class="material-symbols-outlined text-[#9bcbf9] text-7xl opacity-60" style="font-variation-settings: 'FILL' 1;">mic_external_on</span>
+                </div>
+                <div class="overlay absolute inset-0 bg-gradient-to-t from-[#0b0f11]/95 via-[#0b0f11]/40 to-transparent flex flex-col justify-end p-6">
+                    <span class="text-[#89ceff] text-xs font-bold uppercase tracking-widest mb-2">Content</span>
+                    <h3 class="text-[#d2ecff] text-xl font-bold">Pulse Podcast Series</h3>
+                    <p class="text-[#bfc8cf] text-xs mt-1">Top 10 charts in 3 categories</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Load More -->
+    <div class="text-center mt-12">
+        <button class="border border-[#40484e] px-8 py-3 rounded-lg text-[#bfc8cf] hover:bg-[#272a2d] transition-all text-sm font-semibold">
+            Load More Projects
+        </button>
+    </div>
+</main>
+
+<!-- Project Modal -->
+<div class="fixed inset-0 z-[100] hidden items-center justify-center p-4" id="projectModal">
+    <div class="absolute inset-0 bg-[#0b0f11]/95 backdrop-blur-2xl" onclick="closeModal()"></div>
+    <div class="modal-content relative w-full max-w-5xl max-h-[90vh] overflow-y-auto glass rounded-2xl shadow-2xl p-8">
+        <button class="absolute top-6 right-6 text-[#bfc8cf] hover:text-[#d2ecff] transition-colors" onclick="closeModal()">
+            <span class="material-symbols-outlined text-4xl">close</span>
+        </button>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-6">
+            <div class="rounded-xl overflow-hidden bg-[#191c1f] flex items-center justify-center min-h-[260px]" id="modalVisual"></div>
+            <div class="flex flex-col justify-center">
+                <span class="text-[#89ceff] text-xs font-bold uppercase tracking-[0.4em] mb-3" id="modalCategory">Category</span>
+                <h2 class="text-[32px] font-bold text-[#d2ecff] mb-4" id="modalTitle">Project Title</h2>
+                <p class="text-[#bfc8cf] mb-8 text-sm leading-relaxed" id="modalDesc">Description here.</p>
+                <div class="space-y-5 mb-8">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-[#ff8c00]">analytics</span>
+                        <div>
+                            <h4 class="text-[#e0e3e6] text-xs font-bold uppercase">Result</h4>
+                            <p class="text-[#bfc8cf] text-sm" id="modalResult">Result here.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-[#ff8c00]">build</span>
+                        <div>
+                            <h4 class="text-[#e0e3e6] text-xs font-bold uppercase">Services Used</h4>
+                            <p class="text-[#bfc8cf] text-sm" id="modalServices">Services here.</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="contact.html" class="inline-block bg-[#ff8c00] text-black px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform" style="box-shadow:0 0 20px rgba(255,140,0,0.3)">
+                    Start a Similar Project
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-[#0b0f11] border-t border-[#40484e]">
+    <div class="max-w-[1200px] mx-auto px-10 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+            <div class="text-2xl font-bold text-[#e0e3e6] mb-4">Twinm Media House</div>
+            <p class="text-[#bfc8cf] max-w-sm text-sm mb-4">Crafting digital experiences for the next generation of technological visionaries.</p>
+            <p class="text-[#8a9298] text-xs">© 2024 Twinm Media House. Crafted for the future.</p>
+        </div>
+        <div class="flex flex-col gap-3">
+            <h6 class="font-bold text-[#d2ecff] text-sm">Connect</h6>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#">Twitter</a>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#">LinkedIn</a>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#">Instagram</a>
+        </div>
+        <div class="flex flex-col gap-3">
+            <h6 class="font-bold text-[#d2ecff] text-sm">Legal</h6>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#">Privacy Policy</a>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/1234567890" target="_blank" class="fixed bottom-8 right-8 z-50 group">
+    <div class="absolute inset-0 bg-[#ff8c00] blur-xl opacity-20 group-hover:opacity-40 transition-opacity rounded-full"></div>
+    <div class="relative bg-[#ff8c00] text-black p-4 rounded-full shadow-2xl flex items-center gap-3 overflow-hidden transition-all duration-300 max-w-[58px] group-hover:max-w-[200px]">
+        <span class="material-symbols-outlined shrink-0" style="font-variation-settings: 'FILL' 1;">chat</span>
+        <span class="whitespace-nowrap font-bold text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">Chat on WhatsApp</span>
+    </div>
+</a>
+
+<script>
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('open');
+    });
+
+    const projects = [
+        { title: 'NovaTech Launch', category: 'PR Strategy', icon: 'newspaper', color: '#0a74da', desc: 'A comprehensive product launch PR campaign for NovaTech spanning 30 countries, coordinating press briefings, media pitches, and influencer activations simultaneously.', result: '500+ media placements in 30 days, reaching 50M+ readers', services: 'PR Strategy, Media Outreach, Press Release Writing' },
+        { title: 'Linear Core Identity', category: 'Branding', icon: 'auto_awesome', color: '#ff8c00', desc: 'A complete visual identity overhaul for Linear Inc. — from logo design to brand guidelines, typography systems, and motion design assets.', result: 'Brand recognition increased by 220% in 6 months', services: 'Brand Strategy, Visual Identity, Brand Guidelines' },
+        { title: 'Velocity Feed X', category: 'Social Media', icon: 'campaign', color: '#89ceff', desc: 'A full-stack social media takeover for a lifestyle brand — managing content calendars, community engagement, and viral campaign execution across TikTok, Instagram, and LinkedIn.', result: '10x engagement growth, 2M+ impressions in 60 days', services: 'Social Media Management, Content Creation, Analytics' },
+        { title: 'Sentinel Rebound', category: 'Crisis PR', icon: 'shield', color: '#ffb4ab', desc: 'Rapid crisis communications management for a fintech company facing negative press coverage. Deployed a multi-channel response strategy within hours of the story breaking.', result: 'Reputation fully recovered in 72 hours, positive coverage secured', services: 'Crisis Management, Media Relations, Spokesperson Coaching' },
+        { title: 'Aura Visual Narrative', category: 'Content', icon: 'video_library', color: '#9bcbf9', desc: 'Production of a 6-part cinematic brand film series for a luxury automotive brand, featuring Hollywood-grade cinematography and bespoke soundtrack composition.', result: '15M views organically, featured in Cannes Lions shortlist', services: 'Video Production, Content Strategy, Distribution' },
+        { title: 'Quantum Logo System', category: 'Branding', icon: 'draw', color: '#ff8c00', desc: 'An adaptive, multi-format logo and brand toolkit designed for a deep-tech startup entering global markets — built to scale from app icons to billboard placements.', result: 'Deployed across 40+ markets, brand equity valued at $12M', services: 'Logo Design, Branding, Style Guide, Asset Library' },
+        { title: 'Apex Growth Campaign', category: 'PR Strategy', icon: 'trending_up', color: '#89ceff', desc: 'An integrated 6-month PR growth campaign for a SaaS company — combining thought leadership articles, podcast appearances, and tier-1 media placements.', result: '300% brand awareness increase, $2M attributed pipeline', services: 'PR Strategy, Thought Leadership, Analyst Relations' },
+        { title: 'Community Builder Pro', category: 'Social Media', icon: 'groups', color: '#89ceff', desc: 'Community growth management for a wellness brand — building an engaged, loyal audience through authentic UGC campaigns and strategic influencer partnerships.', result: '120K followers in 90 days, 45% average engagement rate', services: 'Social Media, Influencer Relations, UGC Strategy' },
+        { title: 'Pulse Podcast Series', category: 'Content', icon: 'mic_external_on', color: '#9bcbf9', desc: 'Full production, editing, and distribution of a 24-episode thought leadership podcast series for a B2B tech brand, targeting C-suite executives globally.', result: 'Top 10 in 3 categories on Apple Podcasts, 500K downloads', services: 'Podcast Production, Content Strategy, Distribution' },
+    ];
+
+    const iconColors = { 'newspaper':'#0a74da', 'auto_awesome':'#ff8c00', 'campaign':'#89ceff', 'shield':'#ffb4ab', 'video_library':'#9bcbf9', 'draw':'#ff8c00', 'trending_up':'#89ceff', 'groups':'#89ceff', 'mic_external_on':'#9bcbf9' };
+
+    function openModal(idx) {
+        const p = projects[idx];
+        document.getElementById('modalTitle').textContent = p.title;
+        document.getElementById('modalCategory').textContent = p.category;
+        document.getElementById('modalDesc').textContent = p.desc;
+        document.getElementById('modalResult').textContent = p.result;
+        document.getElementById('modalServices').textContent = p.services;
+        document.getElementById('modalVisual').innerHTML = `
+            <div class="w-full h-full min-h-[260px] flex items-center justify-center" style="background: linear-gradient(135deg, ${p.color}20, #0b0f11)">
+                <span class="material-symbols-outlined text-[90px] opacity-50" style="color:${p.color}; font-variation-settings:'FILL' 1;">${p.icon}</span>
+            </div>`;
+        const modal = document.getElementById('projectModal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('projectModal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    // Filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('active', 'bg-[#ff8c00]', 'text-black', 'border-[#ff8c00]');
+                b.classList.add('bg-[#272a2d]', 'text-[#bfc8cf]', 'border-[#40484e]');
+            });
+            btn.classList.add('active');
+            btn.classList.remove('bg-[#272a2d]', 'text-[#bfc8cf]', 'border-[#40484e]');
+            btn.classList.add('bg-[#ff8c00]', 'text-black', 'border-[#ff8c00]');
+
+            const filter = btn.dataset.filter;
+            document.querySelectorAll('.masonry-item').forEach(card => {
+                const cat = card.dataset.category;
+                if (filter === 'all' || cat === filter) {
+                    card.style.display = '';
+                    card.style.opacity = '1';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.masonry-item, header > *').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+</script>
+</body>
+</html>

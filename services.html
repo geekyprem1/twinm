@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Services | TwinM Media House</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<style>
+    body { background-color:#101416; color:#e0e3e6; -webkit-font-smoothing:antialiased; font-family:'Outfit',sans-serif; }
+    .glass { background:rgba(29,32,35,0.6); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(64,72,78,0.3); }
+    .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+    #mobile-menu { display:none; }
+    #mobile-menu.open { display:flex; }
+    .service-card { transition:all 0.4s ease; }
+    .service-card:hover { transform:translateY(-4px); border-color:rgba(255,140,0,0.4); }
+    .check-item { display:flex; align-items:flex-start; gap:10px; }
+    .check-item::before { content:'✔'; color:#ff8c00; font-weight:bold; flex-shrink:0; margin-top:1px; }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-[#1d2023]/80 backdrop-blur-xl border-b border-[#40484e]/30 shadow-sm">
+    <div class="max-w-[1200px] mx-auto flex justify-between items-center px-10 py-4">
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="logo.png" alt="TwinM Media House" class="h-10 w-10 rounded-full object-cover">
+            <span class="text-[22px] font-bold tracking-tight text-[#d2ecff]">TwinM Media House</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+            <a href="index.html" class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm">Home</a>
+            <a href="about.html" class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm">About</a>
+            <a href="services.html" class="text-[#d2ecff] font-bold border-b-2 border-[#d2ecff] pb-1 text-sm">Services</a>
+            <a href="portfolio.html" class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm">Results</a>
+            <a href="contact.html" class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm">Contact</a>
+        </div>
+        <a href="contact.html" class="hidden md:block bg-[#ff8c00] text-black px-6 py-2 rounded-full font-bold hover:scale-95 transition-transform text-sm" style="box-shadow:0 0 15px rgba(255,140,0,0.2)">Get Free Audit</a>
+        <button id="menu-toggle" class="md:hidden text-[#d2ecff]"><span class="material-symbols-outlined">menu</span></button>
+    </div>
+    <div id="mobile-menu" class="md:hidden flex-col bg-[#1d2023] border-t border-[#40484e]/30 px-10 py-6 gap-4">
+        <a href="index.html" class="text-[#bfc8cf] text-sm">Home</a>
+        <a href="about.html" class="text-[#bfc8cf] text-sm">About</a>
+        <a href="services.html" class="text-[#d2ecff] font-bold text-sm">Services</a>
+        <a href="portfolio.html" class="text-[#bfc8cf] text-sm">Results</a>
+        <a href="contact.html" class="text-[#bfc8cf] text-sm">Contact</a>
+        <a href="contact.html" class="bg-[#ff8c00] text-black px-6 py-2 rounded-full font-bold text-sm text-center">Get Free Audit</a>
+    </div>
+</nav>
+
+<main class="pt-32 pb-24">
+
+    <!-- Hero -->
+    <header class="max-w-[1200px] mx-auto px-10 mb-20 text-center relative">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[#ff8c00]/6 blur-[100px] rounded-full -z-10 pointer-events-none"></div>
+        <p class="text-xs font-light tracking-[0.55em] text-[#ff8c00] uppercase mb-4">What We Offer</p>
+        <h1 class="font-bold mb-6 leading-tight text-[#e0e3e6]" style="font-size:clamp(36px,5vw,68px);">Our Services</h1>
+        <p class="max-w-2xl mx-auto text-[#bfc8cf] text-sm leading-relaxed">Five focused services — each designed to drive real business growth, not just online presence.</p>
+    </header>
+
+    <div class="max-w-[1200px] mx-auto px-10 space-y-10">
+
+        <!-- ===== SERVICE 1: Content & Social Media ===== -->
+        <div class="glass rounded-2xl overflow-hidden service-card" id="content">
+            <div class="grid grid-cols-1 md:grid-cols-12">
+                <div class="md:col-span-8 p-10">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-[#ff8c00]/15 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[#ff8c00] text-2xl" style="font-variation-settings:'FILL' 1;">video_library</span>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold tracking-[0.3em] text-[#ff8c00] uppercase">Service 01</p>
+                            <h2 class="text-[26px] font-bold">Content & Social Media</h2>
+                        </div>
+                    </div>
+                    <p class="text-sm font-semibold text-[#ff8c00] mb-3">Building Authority Through High-Impact Content</p>
+                    <p class="text-[#bfc8cf] text-sm leading-relaxed mb-6">We don't just post content — we build a strategic digital presence that attracts, engages, and converts your audience.</p>
+
+                    <h4 class="font-bold text-sm uppercase tracking-widest text-[#8a9298] mb-4">What We Deliver</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Monthly Content Planning aligned with your business goals</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>High-Conversion Reels designed for engagement</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Brand Positioning with optimized profiles</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Creative Storytelling that builds trust</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Page Management with consistent posting</span></div>
+                    </div>
+
+                    <h4 class="font-bold text-sm uppercase tracking-widest text-[#8a9298] mb-3">The TwinM Advantage</h4>
+                    <div class="space-y-1 mb-8">
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Strategy-first approach (no random posting)</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Content designed for growth, not just aesthetics</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Focus on engagement + conversion, not vanity metrics</span></div>
+                    </div>
+                    <a href="contact.html" class="inline-block bg-[#ff8c00] text-black px-8 py-3 rounded-lg font-bold text-sm hover:brightness-110 transition-all" style="box-shadow:0 0 15px rgba(255,140,0,0.25)">Let's Build Your Content Engine →</a>
+                </div>
+                <div class="md:col-span-4 bg-[#ff8c00]/5 flex items-center justify-center p-10 border-l border-[#40484e]/30">
+                    <div class="text-center">
+                        <span class="material-symbols-outlined text-[#ff8c00] block mb-4" style="font-size:80px;font-variation-settings:'FILL' 1;">video_library</span>
+                        <p class="text-[#8a9298] text-xs uppercase tracking-widest">Content & Social</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SERVICE 2: Performance Marketing ===== -->
+        <div class="glass rounded-2xl overflow-hidden service-card" id="ads">
+            <div class="grid grid-cols-1 md:grid-cols-12">
+                <div class="md:col-span-4 bg-[#0a74da]/5 flex items-center justify-center p-10 border-r border-[#40484e]/30">
+                    <div class="text-center">
+                        <span class="material-symbols-outlined text-[#0a74da] block mb-4" style="font-size:80px;font-variation-settings:'FILL' 1;">ads_click</span>
+                        <p class="text-[#8a9298] text-xs uppercase tracking-widest">Performance Marketing</p>
+                    </div>
+                </div>
+                <div class="md:col-span-8 p-10">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-[#0a74da]/15 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[#0a74da] text-2xl" style="font-variation-settings:'FILL' 1;">ads_click</span>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold tracking-[0.3em] text-[#ff8c00] uppercase">Service 02</p>
+                            <h2 class="text-[26px] font-bold">Performance Marketing</h2>
+                        </div>
+                    </div>
+                    <p class="text-sm font-semibold text-[#ff8c00] mb-3">Driving Revenue Through Data-Driven Advertising</p>
+                    <p class="text-[#bfc8cf] text-sm leading-relaxed mb-6">We don't just run ads — we build performance systems that consistently generate high-quality leads and drive real business growth. Our focus: <strong class="text-[#e0e3e6]">maximum return on your ad spend (ROAS).</strong></p>
+
+                    <h4 class="font-bold text-sm uppercase tracking-widest text-[#8a9298] mb-4">What We Deliver</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Ad Strategy & Funnel Planning for your goals</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Multi-Platform Campaigns (Meta, Google, LinkedIn)</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>High-Converting Ad Creatives & Copies</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Audience Targeting & Continuous Testing</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Daily Optimization to scale winning campaigns</span></div>
+                    </div>
+
+                    <h4 class="font-bold text-sm uppercase tracking-widest text-[#8a9298] mb-3">The TwinM Advantage</h4>
+                    <div class="space-y-1 mb-8">
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Data-first approach (no guesswork)</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Focus on lead quality, not just quantity</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Campaigns built for scalability</span></div>
+                    </div>
+                    <a href="contact.html" class="inline-block bg-[#ff8c00] text-black px-8 py-3 rounded-lg font-bold text-sm hover:brightness-110 transition-all" style="box-shadow:0 0 15px rgba(255,140,0,0.25)">Let's Scale Your Ads Profitably →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SERVICE 3: Landing Pages & Funnels ===== -->
+        <div class="glass rounded-2xl overflow-hidden service-card" id="funnels">
+            <div class="grid grid-cols-1 md:grid-cols-12">
+                <div class="md:col-span-8 p-10">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-[#ff8c00]/15 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[#ff8c00] text-2xl" style="font-variation-settings:'FILL' 1;">filter_frames</span>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold tracking-[0.3em] text-[#ff8c00] uppercase">Service 03</p>
+                            <h2 class="text-[26px] font-bold">Landing Pages & Funnels</h2>
+                        </div>
+                    </div>
+                    <p class="text-sm font-semibold text-[#ff8c00] mb-3">Turning Visitors into Qualified Leads</p>
+                    <p class="text-[#bfc8cf] text-sm leading-relaxed mb-6">Getting traffic is only half the job. If your landing page doesn't convert, your marketing effort goes to waste. We build conversion-focused landing pages and funnels designed to turn visitors into leads and customers.</p>
+
+                    <h4 class="font-bold text-sm uppercase tracking-widest text-[#8a9298] mb-4">What We Deliver</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Conversion-Focused Landing Pages</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Funnel Structure & User Flow</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Copywriting & Messaging that drives action</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Lead Capture (Forms, WhatsApp, Call funnels)</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Mobile-Optimized, fast-loading design</span></div>
+                    </div>
+
+                    <h4 class="font-bold text-sm uppercase tracking-widest text-[#8a9298] mb-3">The TwinM Advantage</h4>
+                    <div class="space-y-1 mb-8">
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Built for conversions, not just design</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Aligned with your ads and targeting strategy</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Simple, fast, and result-driven pages</span></div>
+                    </div>
+                    <a href="contact.html" class="inline-block bg-[#ff8c00] text-black px-8 py-3 rounded-lg font-bold text-sm hover:brightness-110 transition-all" style="box-shadow:0 0 15px rgba(255,140,0,0.25)">Let's Build Your Conversion System →</a>
+                </div>
+                <div class="md:col-span-4 bg-[#ff8c00]/5 flex items-center justify-center p-10 border-l border-[#40484e]/30">
+                    <div class="text-center">
+                        <span class="material-symbols-outlined text-[#ff8c00] block mb-4" style="font-size:80px;font-variation-settings:'FILL' 1;">filter_frames</span>
+                        <p class="text-[#8a9298] text-xs uppercase tracking-widest">Pages & Funnels</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SERVICE 4: SEO & Organic Growth ===== -->
+        <div class="glass rounded-2xl overflow-hidden service-card" id="seo">
+            <div class="grid grid-cols-1 md:grid-cols-12">
+                <div class="md:col-span-4 bg-[#00628d]/10 flex items-center justify-center p-10 border-r border-[#40484e]/30">
+                    <div class="text-center">
+                        <span class="material-symbols-outlined text-[#89ceff] block mb-4" style="font-size:80px;font-variation-settings:'FILL' 1;">manage_search</span>
+                        <p class="text-[#8a9298] text-xs uppercase tracking-widest">SEO & Organic</p>
+                    </div>
+                </div>
+                <div class="md:col-span-8 p-10">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-[#89ceff]/15 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[#89ceff] text-2xl" style="font-variation-settings:'FILL' 1;">manage_search</span>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold tracking-[0.3em] text-[#ff8c00] uppercase">Service 04</p>
+                            <h2 class="text-[26px] font-bold">SEO & Organic Growth</h2>
+                        </div>
+                    </div>
+                    <p class="text-sm font-semibold text-[#ff8c00] mb-3">Building Long-Term Visibility & Consistent Traffic</p>
+                    <p class="text-[#bfc8cf] text-sm leading-relaxed mb-6">Paid ads bring quick results, but organic growth builds long-term stability. We help your business rank higher on search engines and attract consistent, high-intent traffic without relying only on ads.</p>
+
+                    <h4 class="font-bold text-sm uppercase tracking-widest text-[#8a9298] mb-4">What We Deliver</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Keyword & Market Research</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>On-Page SEO Optimization</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Content Strategy for SEO ranking</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Technical SEO (speed, indexing, performance)</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Local SEO & Google Business optimization</span></div>
+                    </div>
+
+                    <h4 class="font-bold text-sm uppercase tracking-widest text-[#8a9298] mb-3">The TwinM Advantage</h4>
+                    <div class="space-y-1 mb-8">
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Focus on quality traffic, not just rankings</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>SEO aligned with your business goals</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Works alongside your paid marketing efforts</span></div>
+                    </div>
+                    <a href="contact.html" class="inline-block bg-[#ff8c00] text-black px-8 py-3 rounded-lg font-bold text-sm hover:brightness-110 transition-all" style="box-shadow:0 0 15px rgba(255,140,0,0.25)">Let's Build Your Organic Growth Engine →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SERVICE 5: Conversion & Sales Support ===== -->
+        <div class="glass rounded-2xl overflow-hidden service-card border border-[#ff8c00]/20" id="conversion">
+            <div class="grid grid-cols-1 md:grid-cols-12">
+                <div class="md:col-span-8 p-10">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-[#ff8c00]/15 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[#ff8c00] text-2xl" style="font-variation-settings:'FILL' 1;">trending_up</span>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold tracking-[0.3em] text-[#ff8c00] uppercase">Service 05 — Our Edge</p>
+                            <h2 class="text-[26px] font-bold">Conversion & Sales Support</h2>
+                        </div>
+                    </div>
+                    <p class="text-sm font-semibold text-[#ff8c00] mb-3">Turning Leads into Paying Customers</p>
+                    <p class="text-[#bfc8cf] text-sm leading-relaxed mb-2">Most agencies stop at lead generation. We go one step further.</p>
+                    <p class="text-[#bfc8cf] text-sm leading-relaxed mb-6">Because <strong class="text-[#e0e3e6]">leads don't grow your business — conversions do.</strong> We help you not just generate leads, but also improve how those leads are handled, qualified, and converted into actual customers.</p>
+
+                    <h4 class="font-bold text-sm uppercase tracking-widest text-[#8a9298] mb-4">What We Deliver</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Lead Qualification System</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Follow-Up Process Optimization (WhatsApp, CRM)</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Sales Alignment with marketing process</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Conversion Strategy (interest → decision)</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Closing Support for high-quality leads*</span></div>
+                    </div>
+                    <p class="text-[#8a9298] text-xs mb-6 italic">*For selected clients, we assist in handling and converting high-quality leads directly.</p>
+
+                    <h4 class="font-bold text-sm uppercase tracking-widest text-[#8a9298] mb-3">The TwinM Advantage</h4>
+                    <div class="space-y-1 mb-8">
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Focus on revenue, not just leads</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Bridges the gap between marketing & sales</span></div>
+                        <div class="check-item text-sm text-[#bfc8cf]"><span>Helps you get more value from the same ad spend</span></div>
+                    </div>
+                    <a href="contact.html" class="inline-block bg-[#ff8c00] text-black px-8 py-3 rounded-lg font-bold text-sm hover:brightness-110 transition-all" style="box-shadow:0 0 15px rgba(255,140,0,0.25)">Let's Turn Your Leads into Revenue →</a>
+                </div>
+                <div class="md:col-span-4 bg-[#ff8c00]/8 flex items-center justify-center p-10 border-l border-[#ff8c00]/20">
+                    <div class="text-center">
+                        <span class="material-symbols-outlined text-[#ff8c00] block mb-4" style="font-size:80px;font-variation-settings:'FILL' 1;">trending_up</span>
+                        <p class="text-[#8a9298] text-xs uppercase tracking-widest mb-4">Our Unique Edge</p>
+                        <div class="glass rounded-xl p-4 border border-[#ff8c00]/30">
+                            <p class="text-[#ff8c00] font-bold text-xs uppercase tracking-widest mb-2">We Go Beyond Leads</p>
+                            <p class="text-[#bfc8cf] text-xs leading-relaxed">Most agencies stop at delivery. We help you convert.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CTA -->
+    <section class="max-w-[1200px] mx-auto px-10 py-24 text-center">
+        <h2 class="font-bold text-[#e0e3e6] mb-4" style="font-size:clamp(26px,4vw,44px);">Ready to Get Started?</h2>
+        <p class="text-[#bfc8cf] text-sm mb-10 max-w-xl mx-auto">Book a free strategy call and discover which services will drive the most growth for your business.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="contact.html" class="bg-[#ff8c00] text-black px-10 py-4 rounded-lg font-bold hover:scale-105 transition-all text-sm" style="box-shadow:0 0 20px rgba(255,140,0,0.3)">Book a Free Audit Call</a>
+            <a href="about.html" class="border border-[#40484e] px-10 py-4 rounded-lg font-bold text-[#e0e3e6] hover:bg-[#272a2d] transition-all text-sm">Learn About Us</a>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#0b0f11] border-t border-[#40484e]">
+    <div class="max-w-[1200px] mx-auto px-10 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+            <div class="flex items-center gap-3 mb-4">
+                <img src="logo.png" alt="TwinM Media House" class="h-9 w-9 rounded-full object-cover">
+                <span class="text-xl font-bold text-[#e0e3e6]">TwinM Media House</span>
+            </div>
+            <p class="text-[#bfc8cf] text-sm max-w-sm">We built the agency we wished existed — focused on real business growth, not vanity metrics.</p>
+            <p class="text-[#8a9298] text-xs mt-4">© 2024 TwinM Media House. All rights reserved.</p>
+        </div>
+        <div class="flex flex-col gap-3">
+            <h6 class="font-bold text-[#d2ecff] text-sm">Services</h6>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#content">Content & Social Media</a>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#ads">Performance Marketing</a>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#seo">SEO & Organic Growth</a>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#conversion">Conversion Support</a>
+        </div>
+        <div class="flex flex-col gap-3">
+            <h6 class="font-bold text-[#d2ecff] text-sm">Connect</h6>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#">Instagram</a>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#">LinkedIn</a>
+            <a class="text-[#bfc8cf] hover:text-[#d2ecff] transition-colors text-sm" href="#">Facebook</a>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/1234567890" target="_blank" class="fixed bottom-8 right-8 z-50 group">
+    <div class="absolute inset-0 bg-[#ff8c00] blur-xl opacity-20 group-hover:opacity-40 transition-opacity rounded-full"></div>
+    <div class="relative bg-[#ff8c00] text-black p-4 rounded-full shadow-2xl flex items-center gap-3 overflow-hidden transition-all duration-300 max-w-[58px] group-hover:max-w-[210px]">
+        <span class="material-symbols-outlined shrink-0" style="font-variation-settings:'FILL' 1;">chat</span>
+        <span class="whitespace-nowrap font-bold text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">Chat on WhatsApp</span>
+    </div>
+</a>
+
+<script>
+    document.getElementById('menu-toggle').addEventListener('click',()=>{
+        document.getElementById('mobile-menu').classList.toggle('open');
+    });
+    const observer=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='translateY(0)';}
+        });
+    },{threshold:0.06});
+    document.querySelectorAll('.glass,.service-card,header>*,section>div>*').forEach(el=>{
+        el.style.opacity='0';el.style.transform='translateY(20px)';
+        el.style.transition='opacity 0.6s ease,transform 0.6s ease';
+        observer.observe(el);
+    });
+</script>
+</body>
+</html>

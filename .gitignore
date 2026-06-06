@@ -1,0 +1,7 @@
+.claude/
+satvik-app/
+generate_report.py
+Satvik_Wallpaper_Bug_Report.pdf
+*.pdf
+__pycache__/
+*.pyc
