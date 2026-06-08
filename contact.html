@@ -89,25 +89,34 @@
                 <div class="absolute top-0 right-0 w-40 h-40 bg-[#ff8c00]/10 blur-3xl rounded-full pointer-events-none"></div>
                 <h2 class="text-[28px] font-bold mb-8 relative z-10">Send Us a Message</h2>
 
-                <!-- Formspree form — action will be added by user -->
-                <form class="space-y-6 relative z-10" id="contactForm" method="POST">
+                <!-- Success Message -->
+                <div data-fs-success class="hidden mb-6 p-5 rounded-xl bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-semibold flex items-center gap-3">
+                    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                    Message bhej diya! Hum 2 ghante mein reply karenge. 🎉
+                </div>
+
+                <!-- Error Message -->
+                <div data-fs-error class="hidden mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm"></div>
+
+                <form class="space-y-6 relative z-10" id="contactForm">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="form-group">
                             <label class="block text-xs font-semibold text-[#8a9298] uppercase mb-2 tracking-widest">Full Name *</label>
-                            <input required class="w-full bg-[#191c1f] border border-[#40484e] rounded-lg px-4 py-3 text-sm text-[#e0e3e6] placeholder:text-[#8a9298]/50 focus:border-[#ff8c00] focus:ring-1 focus:ring-[#ff8c00] outline-none transition-all" placeholder="Your Name" type="text" name="name">
+                            <input required data-fs-field class="w-full bg-[#191c1f] border border-[#40484e] rounded-lg px-4 py-3 text-sm text-[#e0e3e6] placeholder:text-[#8a9298]/50 focus:border-[#ff8c00] focus:ring-1 focus:ring-[#ff8c00] outline-none transition-all" placeholder="Your Name" type="text" name="name">
                         </div>
                         <div class="form-group">
                             <label class="block text-xs font-semibold text-[#8a9298] uppercase mb-2 tracking-widest">Email Address *</label>
-                            <input required class="w-full bg-[#191c1f] border border-[#40484e] rounded-lg px-4 py-3 text-sm text-[#e0e3e6] placeholder:text-[#8a9298]/50 focus:border-[#ff8c00] focus:ring-1 focus:ring-[#ff8c00] outline-none transition-all" placeholder="you@company.com" type="email" name="email">
+                            <input required data-fs-field class="w-full bg-[#191c1f] border border-[#40484e] rounded-lg px-4 py-3 text-sm text-[#e0e3e6] placeholder:text-[#8a9298]/50 focus:border-[#ff8c00] focus:ring-1 focus:ring-[#ff8c00] outline-none transition-all" placeholder="you@company.com" type="email" name="email">
+                            <span data-fs-error="email" class="text-red-400 text-xs mt-1 block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="block text-xs font-semibold text-[#8a9298] uppercase mb-2 tracking-widest">Phone Number</label>
-                        <input class="w-full bg-[#191c1f] border border-[#40484e] rounded-lg px-4 py-3 text-sm text-[#e0e3e6] placeholder:text-[#8a9298]/50 focus:border-[#ff8c00] focus:ring-1 focus:ring-[#ff8c00] outline-none transition-all" placeholder="+91 98765 43210" type="tel" name="phone">
+                        <input data-fs-field class="w-full bg-[#191c1f] border border-[#40484e] rounded-lg px-4 py-3 text-sm text-[#e0e3e6] placeholder:text-[#8a9298]/50 focus:border-[#ff8c00] focus:ring-1 focus:ring-[#ff8c00] outline-none transition-all" placeholder="+91 98765 43210" type="tel" name="phone">
                     </div>
                     <div class="form-group">
                         <label class="block text-xs font-semibold text-[#8a9298] uppercase mb-2 tracking-widest">Service Interested In</label>
-                        <select class="w-full bg-[#191c1f] border border-[#40484e] rounded-lg px-4 py-3 text-sm text-[#e0e3e6] focus:border-[#ff8c00] focus:ring-1 focus:ring-[#ff8c00] outline-none transition-all" name="service">
+                        <select data-fs-field class="w-full bg-[#191c1f] border border-[#40484e] rounded-lg px-4 py-3 text-sm text-[#e0e3e6] focus:border-[#ff8c00] focus:ring-1 focus:ring-[#ff8c00] outline-none transition-all" name="service">
                             <option value="">Select a service...</option>
                             <option value="content">Content & Social Media</option>
                             <option value="ads">Performance Marketing (Meta/Google Ads)</option>
@@ -121,28 +130,29 @@
                         <label class="block text-xs font-semibold text-[#8a9298] uppercase mb-2 tracking-widest">Your Budget Range</label>
                         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
                             <label class="budget-option cursor-pointer">
-                                <input type="radio" name="budget" value="starter" class="sr-only">
+                                <input type="radio" name="budget" value="Under ₹15k" class="sr-only">
                                 <div class="budget-btn text-center border border-[#40484e] rounded-lg px-3 py-2 text-xs text-[#bfc8cf] hover:border-[#ff8c00] transition-all">Under ₹15k</div>
                             </label>
                             <label class="budget-option cursor-pointer">
-                                <input type="radio" name="budget" value="growth" class="sr-only">
+                                <input type="radio" name="budget" value="₹15k–₹30k" class="sr-only">
                                 <div class="budget-btn text-center border border-[#40484e] rounded-lg px-3 py-2 text-xs text-[#bfc8cf] hover:border-[#ff8c00] transition-all">₹15k–₹30k</div>
                             </label>
                             <label class="budget-option cursor-pointer">
-                                <input type="radio" name="budget" value="agency" class="sr-only">
+                                <input type="radio" name="budget" value="₹30k–₹60k" class="sr-only">
                                 <div class="budget-btn text-center border border-[#40484e] rounded-lg px-3 py-2 text-xs text-[#bfc8cf] hover:border-[#ff8c00] transition-all">₹30k–₹60k</div>
                             </label>
                             <label class="budget-option cursor-pointer">
-                                <input type="radio" name="budget" value="enterprise" class="sr-only">
+                                <input type="radio" name="budget" value="₹60k+" class="sr-only">
                                 <div class="budget-btn text-center border border-[#40484e] rounded-lg px-3 py-2 text-xs text-[#bfc8cf] hover:border-[#ff8c00] transition-all">₹60k+</div>
                             </label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="block text-xs font-semibold text-[#8a9298] uppercase mb-2 tracking-widest">Message *</label>
-                        <textarea required class="w-full bg-[#191c1f] border border-[#40484e] rounded-lg px-4 py-3 text-sm text-[#e0e3e6] placeholder:text-[#8a9298]/50 focus:border-[#ff8c00] focus:ring-1 focus:ring-[#ff8c00] outline-none transition-all resize-none" placeholder="Tell us about your brand, goals, and how we can help..." rows="5" name="message"></textarea>
+                        <textarea required data-fs-field class="w-full bg-[#191c1f] border border-[#40484e] rounded-lg px-4 py-3 text-sm text-[#e0e3e6] placeholder:text-[#8a9298]/50 focus:border-[#ff8c00] focus:ring-1 focus:ring-[#ff8c00] outline-none transition-all resize-none" placeholder="Tell us about your brand, goals, and how we can help..." rows="5" name="message"></textarea>
+                        <span data-fs-error="message" class="text-red-400 text-xs mt-1 block"></span>
                     </div>
-                    <button type="submit" class="w-full md:w-auto bg-[#ff8c00] text-black px-12 py-4 rounded-lg font-bold uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all text-xs" style="box-shadow:0 0 20px rgba(255,140,0,0.25)">
+                    <button type="submit" data-fs-submit-btn class="w-full md:w-auto bg-[#ff8c00] text-black px-12 py-4 rounded-lg font-bold uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all text-xs disabled:opacity-60 disabled:cursor-not-allowed" style="box-shadow:0 0 20px rgba(255,140,0,0.25)">
                         Send Message →
                     </button>
                 </form>
@@ -278,6 +288,13 @@
         });
     });
 </script>
+
+<!-- Formspree -->
+<script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#contactForm', formId: 'xpqedqov' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 <!-- Aurora Mouse -->
 <script>
